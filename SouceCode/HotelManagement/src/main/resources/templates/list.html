@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+
+    <div class="container main-content list">
+        <th:block th:if="${#lists.isEmpty(baocao)}">
+            <h3>Khong co bao cao</h3>
+        </th:block>
+
+        <th:block th:unless="${#lists.isEmpty(baocao)}">
+            <div class="row">
+                <a href="#" class="btn btn-success pull-left"><span
+                    class="glyphicon glyphicon-plus"></span> Add new contact</a>
+                <form class="form-inline pull-right">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="criteria"
+                            placeholder="Type contact name..." />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+            <div class="row">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>MaBaoCao</th>
+                            <th>TenBaoCao</th>
+                            <th>LoaiBaoCao</th>
+                            <th>NguoiLap</th>
+                            <th>NgayLap</th>
+                            <th>NoiDung</th>
+                            <th>GhiChu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="baocao,iterStat : ${baocao}">
+                            <td th:text="${iterStat.MaBaoCao}"></td>
+                            <td th:text="${baocao.TenBaoCao}"></td>
+                            <td th:text="${baocao.LoaiBaoCao}"></td>
+                            <td th:text="${baocao.NguoiLap}"></td>
+                            <td th:text="${baocao.NgayLap}"></td>
+                            <td th:text="${baocao.NoiDung}"></td>
+                            <td th:text="${baocao.GhiChu}"></td>
+                            <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td><a href="#"><span class="glyphicon glyphicon-trash"></span></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </th:block>
+    </div>
+    <!-- /.container -->
+</body>
+</html>
