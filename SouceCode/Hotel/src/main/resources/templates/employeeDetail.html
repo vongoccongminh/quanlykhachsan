@@ -8,73 +8,82 @@
 
 <div class="container">
 	<br /> <br /> <br /> <br />
-	
-	<h1 th:inline="text">Hello ${#employee.name}</h1>
-	
-	<div class="col-sm-4">
-		<div class="w3-card-4" style="width:70%">
-			<img th:src="@{'/imgs/' + ${employee.img} }" th:class="img-thumbnail" style="width:100%" />
+	<h1>
+		<b th:text="${employee.name}"></b>
+	</h1>
+	<br /> <br /> <br />
+	<div class="col-sm-5">
+		<div class="w3-card-4" style="width: 70%">
+			<img th:src="@{'/imgs/' + ${employee.img} }" th:class="img-thumbnail"
+				style="width: 100%" />
 		</div>
 	</div>
 
-	<div class="col-sm-8">
+	<div class="col-sm-5">
 		<form action="#" th:action="@{/employee/{id}/detail}"
 			th:object="${employee}" method="POST" novalidate="novalidate">
 			<input type="hidden" th:field="*{id}" />
 
 			<div class="form-group">
-				<label>Name</label> <input type="text" class="form-control"
+				<label>Họ và tên</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{name}" />
 			</div>
 
 
 
 			<div class="form-group">
-				<label>Birth day</label> <input id="date" type="date"
-					value="2017-12-010" class="form-control" readonly="readonly"
-					th:field="*{birth_day}" />
+				<label>Ngày sinh</label> <input id="date" type="date"
+					class="form-control" readonly="readonly" th:field="*{birth_day}" />
 			</div>
 
 			<div class="form-group">
-				<label>Address</label> <input type="text" class="form-control"
+				<label>Giới tính</label> <input type="text" class="form-control"
+					readonly="readonly" th:field="*{gender}" />
+			</div>
+
+			<div class="form-group">
+				<label>Địa chỉ</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{address}" />
 			</div>
 
 			<div class="form-group">
-				<label>Phone</label> <input type="text" class="form-control"
+				<label>Số điện thoại</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{phone}" />
 			</div>
 
 			<div class="form-group">
-				<label>Passport</label> <input type="text" class="form-control"
+				<label>Số CMND</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{passport}" />
 			</div>
 
 			<div class="form-group">
-				<label>Salary</label> <input type="text" class="form-control"
+				<label>Lương</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{salary}" />
 			</div>
 
 			<div class="form-group">
-				<label>Dept</label> <input type="text" class="form-control"
+				<label>Bộ phận</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{dept}" />
 			</div>
 
 			<div class="form-group">
-				<label>Username</label> <input type="text" class="form-control"
+				<label>Tài khoản</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{username}" />
 			</div>
 
 			<div class="form-group">
-				<label>Passwords</label> <input type="password" class="form-control"
-					readonly="readonly" th:field="*{passwords}" />
+				<label>Mật khẩu</label> <input type="password" class="form-control"
+					placeholder="***" readonly="readonly" th:field="*{passwords}" />
 			</div>
 
 			<div class="form-group">
-				<label>Status</label> <input type="text" class="form-control"
-					readonly="readonly" th:field="*{status}" />
+				<label>Tình trạng tài khoản</label> <input type="text"
+					class="form-control" readonly="readonly" th:field="*{status}" />
 			</div>
 		</form>
+		<br/>
+		<a th:href="@{/employee/{id}/edit(id=${employee.id})}" class="button"> Sửa thông tin</a>
+
 	</div>
 </div>
 

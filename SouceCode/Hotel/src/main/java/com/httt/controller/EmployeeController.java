@@ -2,6 +2,7 @@ package com.httt.controller;
 
 import javax.validation.Valid;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 import com.httt.model.Employee;
 import com.httt.service.EmployeeService;
@@ -20,7 +23,7 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 
-	@GetMapping("/employee")
+	@GetMapping({"/employee","/"})
 	public String index(Model model) 
 	{
 		model.addAttribute("employees", employeeService.findAll());
@@ -30,14 +33,15 @@ public class EmployeeController {
 	@GetMapping("/employee/create")
 	public String create(Model model) { 
 		model.addAttribute("employee", new Employee());
-		return "form";
+		return "addEmployee";
 	}
 
 	@GetMapping("/employee/{id}/edit")
 	public String edit(@PathVariable int id, Model model) {
 		model.addAttribute("employee", employeeService.findOne(id));
-		return "form";
+		return "editEmployee";
 	}
+	
 	
 	@GetMapping("/employee/{id}/detail")
 	public String detail(@PathVariable int id, Model model) {
@@ -49,8 +53,28 @@ public class EmployeeController {
 	public String save(@Valid Employee employee, BindingResult result, RedirectAttributes redirect) {
 		if (result.hasErrors()) {
 			redirect.addFlashAttribute("failed", "Can not create employee, please try again!");
-			return "form";
+			return "addEmplyee";
 		}
+		
+		int id = employee.getId();
+		
+		if( id > 0 ) {
+			id = employee.getId();
+			Employee tempEmployee = employeeService.findOne(id);
+			
+			employee.setPasswords(tempEmployee.getPasswords());
+			employeeService.save(employee);
+			System.out.println("ko");
+			
+			return "redirect:/employee";
+		}
+		
+		//hash passwords
+		String passwords = employee.getPasswords();
+		System.out.println(passwords);
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String hashedPassword = passwordEncoder.encode(passwords);
+		employee.setPasswords(hashedPassword);
 		
 		employeeService.save(employee);
 		redirect.addFlashAttribute("success", "Saved employee successfully!");

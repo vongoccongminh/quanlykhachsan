@@ -13,21 +13,21 @@
 		class="row alert alert-success alert-dismissible">
 		<button type="button" class="close" data-dismiss="alert"
 			aria-label="Close">
-			<span aria-hidden="true">�</span>
+			<span aria-hidden="true">×</span>
 		</button>
 		<span th:text="${success}"></span>
 	</div>
 	<div class="row">
 		<a th:href="@{/employee/create}" class="btn btn-success pull-left">
-			<span class="glyphicon glyphicon-plus"></span> Add new employee
+			<span class="glyphicon glyphicon-plus"></span> Thêm nhân viên
 		</a>
 		<form class="form-inline pull-right" action="#"
 			th:action="@{/employee/search}" method="GET">
 			<div class="form-group">
 				<input type="text" class="form-control" name="s"
-					placeholder="Type employee name..." />
+					placeholder="Nhập tên nhân viên ..." />
 			</div>
-			<button type="submit" class="btn btn-primary">Search</button>
+			<button type="submit" class="btn btn-primary">Tìm kiếm</button>
 		</form>
 	</div>
 	<th:block th:if="${#lists.isEmpty(employees)}">
@@ -39,35 +39,31 @@
 			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
-						<th>id</th>
-						<th>name</th>
-						<th>birthday</th>
-						<th>address</th>
-						<th>phone</th>
-						<th>passport</th>
-						<th>salary</th>
-						<th>dept</th>
-						<th>username</th>
-						<th>passwords</th>
-						<th>status</th>
+						<th>STT</th>
+						<th>Họ tên</th>
+						<th>Giới tính</th>
+						<th>Bộ phận</th>
+						<th>Ngày sinh</th>
+						<th>SĐT</th>
+
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="employee,iterStat : ${employees}">
 						<td th:text="${iterStat.count}"></td>
 						<td th:text="${employee.name}"></td>
-						<td th:text="${employee.birth_day}"></td>
-						<td th:text="${employee.address}"></td>
-						<td th:text="${employee.phone}"></td>
-						<td th:text="${employee.passport}"></td>
-						<td th:text="${employee.salary}"></td>
+						<td th:text="${employee.gender}"></td>
 						<td th:text="${employee.dept}"></td>
-						<td th:text="${employee.username}"></td>
-						<td th:password="${employee.passwords}"></td>
-						<td th:text="${employee.status}"></td>
-					
+						<td th:text="${employee.birth_day}"></td>
+						<td th:text="${employee.phone}"></td>
+			
+						
+						<td><a th:href="@{/employee/{id}/detail(id=${employee.id})}"><span
+								>Xem chi tiết</span></a></td>
+								
 						<td><a th:href="@{/employee/{id}/edit(id=${employee.id})}"><span
 								class="glyphicon glyphicon-pencil"></span></a></td>
+								
 						<td><a th:href="@{/employee/{id}/delete(id=${employee.id})}"><span
 								class="glyphicon glyphicon-trash"></span></a></td>
 					</tr>

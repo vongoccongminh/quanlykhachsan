@@ -31,7 +31,7 @@ public class Employee implements Serializable {
     private String address;
     
     @Column(name = "phone", nullable = false)
-    private int phone;
+    private String phone;
     
     @Column(name = "passport", nullable = false)
     private String passport;
@@ -53,9 +53,12 @@ public class Employee implements Serializable {
     
     @Column(name = "img")
     private String img;
+    
+    @Column(name = "gender")
+    private String gender;
 
-	public Employee(int id, String name, Date birth_day, String address, int phone, String passport, float salary,
-			int dept, String username, String passwords, boolean status, String img) {
+	public Employee(int id, String name, Date birth_day, String address, String phone, String passport, float salary,
+			int dept, String username, String passwords, boolean status, String img, String gender) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -69,6 +72,7 @@ public class Employee implements Serializable {
 		this.passwords = passwords;
 		this.status = status;
 		this.img = img;
+		this.gender = gender;
 	}
 
 	public Employee() {
@@ -108,11 +112,11 @@ public class Employee implements Serializable {
 		this.address = address;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
@@ -171,6 +175,14 @@ public class Employee implements Serializable {
 
 	public void setImg(String img) {
 		this.img = img;
+	}
+	
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
     
 

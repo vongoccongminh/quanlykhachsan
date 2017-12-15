@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Spring MyEmployee</title>
+<title>Hotel Management</title>
 
 <!-- Bootstrap -->
 <link
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
-    rel="stylesheet" />
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+	rel="stylesheet" />
 
 <!-- Custom style -->
 <link href="../static/css/style.css" th:href="@{/css/style.css}"
@@ -50,7 +50,16 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" th:href="@{/employee}">MyEmployee</a>
+				<a class="navbar-brand" th:href="@{/employee}">Employee</a> <a
+					class="navbar-brand" th:href="@{/department}">Department</a>
+			</div>
+			<div>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+							Sign Up</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+							Login</a></li>
+				</ul>
 			</div>
 		</div>
 	</nav>
@@ -59,7 +68,6 @@
 	<h1>Main content</h1>
 
 
-	<footer th:fragment="footer" class="container"> Copyright ©
-		by Owls </footer>
+	<footer th:fragment="footer" class="container">The Owls </footer>
 </body>
 </html>
