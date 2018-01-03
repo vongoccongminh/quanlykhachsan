@@ -127,10 +127,10 @@ CREATE TABLE PHANCONG
 
 CREATE TABLE KHACHHANG
 (
-	MaKH int,
+	MaKH int auto_increment,
 	TenKH nvarchar(50),
 	Phai nvarchar(10),
-	CMND_Passport nvarchar(20),
+	CMND nvarchar(20),
 	SDT char(15),
 	DiaChi nvarchar(50),
 	MaLoaiKH int, 
