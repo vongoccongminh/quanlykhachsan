@@ -196,7 +196,7 @@ CREATE TABLE PHONG
 
 CREATE TABLE THIETBI
 (
-	MaTB				int,
+	MaTB				int auto_increment,
 	TenTB				nvarchar(50),
 	SoSeri				nvarchar(50),
 	NgayNhap			datetime,
