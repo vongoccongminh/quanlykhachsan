@@ -2,13 +2,19 @@ package com.httt.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.httt.model.Role;
 
 @Entity
 @Table(name = "Employee")
@@ -56,6 +62,14 @@ public class Employee implements Serializable {
     
     @Column(name = "gender")
     private String gender;
+    
+    @ManyToMany
+    @JoinTable(
+            name = "employee_role",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles;
 
 	public Employee(int id, String name, Date birth_day, String address, String phone, String passport, float salary,
 			int dept, String username, String passwords, boolean status, String img, String gender) {
@@ -184,6 +198,14 @@ public class Employee implements Serializable {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
     
 
 }

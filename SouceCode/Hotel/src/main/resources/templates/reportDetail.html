@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<head th:replace="layout :: head"></head>
+<nav th:replace="layout :: header"></nav>
+
+<div class="container main-content form"
+	style="margin: 0 auto; width: 60%">
+	<br /> <br /> <br /> <br />
+	<h2 th:text="${report.name}"></h2>
+	<br />
+	<div class="form-group row">
+		<form class="form-horizontal" action="#" th:action="@{/report/save}"
+			th:object="${report}" method="POST" novalidate="novalidate">
+			<input type="hidden" th:field="*{id}" />
+
+			<div class="form-group">
+				<label>Tên báo cáo</label> <input type="text" class="form-control"
+					readonly="readonly" th:field="*{name}" />
+			</div>
+
+			<div class="form-group">
+				<label>Loại báo cáo</label> <input type="text" class="form-control"
+					readonly="readonly" th:field="*{type}" />
+			</div>
+
+			<div class="form-group">
+				<label>Người tạo</label> <input type="text" class="form-control"
+					readonly="readonly" th:field="*{created_person}" />
+			</div>
+
+			<div class="form-group">
+				<label>Ngay tao</label> <input type="text" class="form-control"
+					readonly="readonly" th:field="*{created_at}" />
+			</div>
+
+
+			<div class="form-group">
+				<label>Nội dung báo cáo</label>
+				<textarea name="description" class="form-control"
+					readonly="readonly" th:field="*{content}" rows="5"></textarea>
+			</div>
+
+			<div class="form-group">
+				<label>Ghi chú</label>
+				<textarea name="description" class="form-control" th:field="*{note}"
+					readonly="readonly" rows="3"></textarea>
+			</div>
+			
+			<div class="form-group">
+				<label>File báo cáo</label> <input type="text" class="form-control"
+					readonly="readonly" th:field="*{file}" />
+			</div>
+
+	
+
+			<a th:href="@{/report/{id}/edit(id=${report.id})}" class="button"> Sửa báo cáo</a>
+
+
+
+		</form>
+	</div>
+</div>
+<br />
+<br />
+<br />
+
+<!-- /.container -->
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

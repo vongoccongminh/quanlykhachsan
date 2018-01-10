@@ -1,5 +1,7 @@
 package com.httt.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 
@@ -14,30 +16,41 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-
+import com.httt.model.Department;
 import com.httt.model.Employee;
+import com.httt.service.DepartmentService;
 import com.httt.service.EmployeeService;
 
 @Controller
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
+	
+	@Autowired
+	private DepartmentService departmentService;
 
-	@GetMapping({"/employee","/"})
+	@GetMapping({"/employee"})
 	public String index(Model model) 
 	{
+		List<Department> listDepartment = (List<Department>) this.departmentService.findAll();
+		model.addAttribute("listDepartment", listDepartment);
 		model.addAttribute("employees", employeeService.findAll());
 		return "employee";
 	}
 
 	@GetMapping("/employee/create")
 	public String create(Model model) { 
+		List<Department> listDepartment = (List<Department>) this.departmentService.findAll();
+		model.addAttribute("listDepartment", listDepartment);
 		model.addAttribute("employee", new Employee());
+		
 		return "addEmployee";
 	}
 
 	@GetMapping("/employee/{id}/edit")
 	public String edit(@PathVariable int id, Model model) {
+		List<Department> listDepartment = (List<Department>) this.departmentService.findAll();
+		model.addAttribute("listDepartment", listDepartment);
 		model.addAttribute("employee", employeeService.findOne(id));
 		return "editEmployee";
 	}
