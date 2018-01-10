@@ -50,10 +50,10 @@ CREATE TABLE CHITIETTHUEDICHVU
 
 CREATE TABLE THONGTINTHUEPHONG
 (
-	MaTP int,
-	MaDP int,
-	GiaThuePhong float,
-	GiayToTamGiu  nvarchar(100),
+	matp int not null auto_increment,
+	madp int,
+	giathuephong int,
+	giaytotamgiu  nvarchar(100),
 	PRIMARY KEY(MaTP)
 );
 
