@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+    <nav th:replace="layout :: header"></nav>
+
+    <div class="container main-content form">
+        <div class="row">
+          <form action="#" th:action="@{/datphong/save}" th:object="${datphong}"
+		    method="POST" novalidate="novalidate">
+		    
+		    
+		    <div class="form-group">
+		        <label>ngaydp</label> 
+		        <input type="text" class="form-control" th:field="*{ngaydp}" />
+		    </div>
+		     <div class="form-group">
+		        <label>ngaybd</label> 
+		        <input type="text" class="form-control" th:field="*{ngaybd}" />
+		    </div>
+		     <div class="form-group">
+		        <label>ngaykt</label> 
+		        <input type="text" class="form-control" th:field="*{ngaykt}" />
+		    </div>
+		     <div class="form-group">
+		        <label>mo ta</label> 
+		        <input type="text" class="form-control" th:field="*{mota}" />
+		    </div>
+		     <div class="form-group">
+		        <label>ma nhan vien</label> 
+		        <input type="text" class="form-control" th:field="*{manv}" />
+		    </div>
+		     <div class="form-group">
+		        <label>ma khach hang</label> 
+		        <input type="text" class="form-control" th:field="*{makh}" />
+		    </div>
+		    <button type="submit" class="btn btn-primary">Save</button>
+		</form>
+        </div>
+    </div><!-- /.container -->
+
+    <footer th:replace="layout :: footer"></footer>
+</body>
+</html>
