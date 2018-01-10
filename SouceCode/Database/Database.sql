@@ -48,14 +48,12 @@ CREATE TABLE CHITIETTHUEDICHVU
 	primary key (MaTP, MaDV)
 );
 
-CREATE TABLE THONGTINTHUEPHONG
-(
-	matp int not null auto_increment,
+CREATE TABLE THONGTINTHUEPHONG(
+	matp int(10) not null auto_increment PRIMARY key,
 	madp int,
 	giathuephong int,
-	giaytotamgiu  nvarchar(100),
-	PRIMARY KEY(MaTP)
-);
+	giaytotamgiu  nvarchar(100)
+)
 
 CREATE TABLE CHITIETKYGUIHANHLY
 (
