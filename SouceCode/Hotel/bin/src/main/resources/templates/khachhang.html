@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: head"></head>
+
+<body>
+
+<nav th:replace="layout :: header"></nav>
+
+<div class="container main-content list">
+	<br/> <br/> <br/><br/><br/>
+	<div th:if="${success}"
+		class="row alert alert-success alert-dismissible">
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true"></span>
+		</button>
+		<span th:text="${success}"></span>
+	</div>
+	<th:block th:if="${#lists.isEmpty(khachhangs)}">
+		<h3>KHÔNG TỒN TẠI KHÁCH HÀNG NÀO</h3>
+	</th:block>
+	<th:block th:unless="${#lists.isEmpty(khachhangs)}">
+		<div class="row">
+		<h2 style = "center;">DANH SÁCH CÁC KHÁCH HÀNG</h2>
+		 		<a th:href="@{/khachhang/create}" class="btn btn-success pull-left">
+                	<span class="glyphicon glyphicon-plus"></span>Thêm khách hàng
+               	</a>
+               	<form class="form-inline pull-right" action="#"
+					th:action="@{/khachhang/search}" method="GET">
+					<div class="form-group">
+						<input type="text" class="form-control" name="s"
+							placeholder="Nhập số CMND ..." />
+					</div>
+					<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+				</form>
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Mã khách hàng</th>
+						<th>Tên khách hàng</th>
+						<th>Phái</th>
+						<th>CMND</th>
+						<th>SDT</th>
+						<th>Địa chỉ</th>
+						<th>Loại khách hàng</th>
+						<th>Chỉnh sửa</th>
+						<th>Xóa</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="khachhang,iterStat : ${khachhangs}">
+						<td th:text="${iterStat.count}"></td>
+						<td th:text="${khachhang.makh}"></td>
+						<td th:text="${khachhang.tenkh}"></td>
+						<td th:text="${khachhang.phai}"></td>
+						<td th:text="${khachhang.cmnd}"></td>
+						<td th:text="${khachhang.sdt}"></td>
+						<td th:text="${khachhang.diachi}"></td>
+						<td th:text="${khachhang.maloaikh}"></td>
+						<td><a th:href="@{/khachhang/{id}/edit(id=${khachhang.makh})}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                        <td><a th:href="@{/khachhang/{id}/delete(id=${khachhang.makh})}"><span class="glyphicon glyphicon-trash"></span></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</th:block>
+	
+</div>
+<!-- /.container -->
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

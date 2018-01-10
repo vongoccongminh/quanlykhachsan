@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<head th:replace="layout :: head"></head>
+<nav th:replace="layout :: header"></nav>
+
+<div class="container main-content form">
+	<br /> <br /> <br /> <br />
+	<h2>Sửa thông tin khách hàng!</h2>
+	<br/>
+	<div class="form-group row">
+		<form class="form-horizontal" action="#" th:action="@{/khachhang/save}"
+			th:object="${khachhang}" method="POST" novalidate="novalidate">
+			<input type="hidden" th:field="*{makh}" />
+			<div class="col-xs-5">
+				<div class="form-group">
+					<label>Họ tên</label> <input type="text" class="form-control"
+						th:field="*{tenkh}" />
+				</div>
+				
+				<div class="form-group">
+					<label>Giới tính</label> <select th:field="*{phai}">
+						<option value="Nam">Nam</option>
+						<option value="Nữ">Nữ</option>
+						<option value="Khác">Khác</option>
+					</select>
+
+				</div>
+				
+				<div class="form-group">
+					<label>CMND/Passport</label> <input type="text" class="form-control"
+						th:field="*{cmnd}" />
+				</div>
+				
+				<div class="form-group">
+					<label>SĐT</label> <input type="text" class="form-control"
+						th:field="*{sdt}" />
+				</div>
+
+				<div class="form-group">
+					<label>Địa chỉ</label> <input type="text" class="form-control"
+						th:field="*{diachi}" />
+				</div>
+				
+				<div class="form-group">
+				<label>Loại khách hàng</label>
+				<select th:field="*{maloaikh}">
+                         <option th:each="maloaikh : ${listLKH}"
+                            th:value="${maloaikh.maloaikh}"
+                            th:utext="${maloaikh.tenloaikh}"/>
+                  </select>
+				</div>
+				<br />
+				<button type="submit" class="btn btn-primary btn-md">Lưu</button>
+			</div>
+		</form>
+	</div>
+</div>
+<br />
+<br />
+<br />
+
+<!-- /.container -->
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

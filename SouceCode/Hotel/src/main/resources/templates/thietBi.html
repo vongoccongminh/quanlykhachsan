@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: head"></head>
+
+<body>
+
+<nav th:replace="layout :: header"></nav>
+
+<div class="container main-content list">
+	<br/> <br/> <br/><br/><br/>
+		<div th:if="${success}"
+		class="row alert alert-success alert-dismissible">
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true">Ã—</span>
+		</button>
+		<span th:text="${success}"></span>
+	</div>
+	<th:block th:if="${#lists.isEmpty(thietbis)}">
+		<h3>KHÔNG TỒN TẠI THIẾT BỊ NÀO TRONG HỆ THỐNG</h3>
+		<a th:href="@{/thietbi/tao}" class="btn btn-success pull-left">
+                	<span class="glyphicon glyphicon-plus"></span>Thêm thiết bị
+               	</a>
+	</th:block>
+	<th:block th:unless="${#lists.isEmpty(thietbis)}">
+		<div class="row">
+		<h2 style = "center;">DANH SÁCH CÁC THIẾT BỊ TRONG HỆ THỐNG</h2>
+		 		<a th:href="@{/thietbi/tao}" class="btn btn-success pull-left">
+                	<span class="glyphicon glyphicon-plus"></span>Thêm thiết bị
+               	</a>
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Mã thiết bị</th>
+						<th>Tên</th>
+						<th>Số Seri</th>
+						<th>Ngày nhập</th>
+						<th>Ngày hết bảo hành</th>
+						<th>Niên hạn</th>
+						<th>Tình trạng</th>
+						<th>Sử dụng trong phòng</th>
+						<th>Nhân viên quản lý</th>
+						<th>Loại</th>
+						<th>Chỉnh sửa</th>
+						<th>Xóa</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="thietbi,iterStat : ${thietbis}">
+						<td th:text="${iterStat.count}"></td>
+						<td th:text="${thietbi.matb}"></td>
+						<td th:text="${thietbi.tentb}"></td>
+						<td th:text="${thietbi.soseri}"></td>
+						<td th:text="${thietbi.ngaynhap}"></td>
+						<td th:text="${thietbi.ngayhetbaohanh}"></td>
+						<td th:text="${thietbi.nienhan}"></td>
+						<td th:text="${thietbi.tinhtrang}"></td>
+						<td th:text="${thietbi.sudungtrongphong}"></td>
+						<td th:text="${thietbi.nhanvienquanly}"></td>
+						<td th:text="${thietbi.loaitb}"></td>
+						<td><a th:href="@{/thietbi/{id}/sua(id=${thietbi.matb})}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                        <td><a th:href="@{/thietbi/{id}/xoa(id=${thietbi.matb})}"><span class="glyphicon glyphicon-trash"></span></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</th:block>
+	
+</div>
+<!-- /.container -->
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>
