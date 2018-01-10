@@ -71,12 +71,12 @@ CREATE TABLE CHITIETKYGUIHANHLY
 
 CREATE TABLE THONGTINTRAPHONG 
 (
-	MaTP int,
-	ThoiGianTraPhong datetime,
-	ChiPhiPhatSinh float,
-	ThongTinGhiChu nvarchar(100),
-	TongTien float,
-	PRIMARY KEY(MaTP)
+	matp int not null AUTO_INCREMENT,
+	tgtraphong datetime,
+	chiphiphatsinh float,
+	mota nvarchar(50),
+	tongien float,
+	PRIMARY KEY(matp)
 );
 
 CREATE TABLE NHANVIEN
@@ -251,14 +251,13 @@ create table THONGTINHUYDATPHONG
 
 create table THONGTINDATPHONG
 (
-MaDP int,
-NgayDP datetime,
-NgayBD datetime,
-NgayKT datetime,
-MoTa nvarchar(100),
-MaNV int,
-MaKH int,
-PRIMARY key (MaDP)
+madp int AUTO_INCREMENT PRIMARY KEY,
+ngaydp datetime,
+ngaybd datetime,
+ngaykt datetime,
+mota nvarchar(100),
+manv int,
+makh int
 );
 
 create table CHITIETDP
