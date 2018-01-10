@@ -185,6 +185,7 @@ CREATE TABLE LOAIPHONG
 CREATE TABLE PHONG
 (
 	MaPhong		int,
+	TenPhong        nvarchar(50),
 	GiaPhong	float,
 	MoTa		nvarchar(50),
 	MaLoai		int,
