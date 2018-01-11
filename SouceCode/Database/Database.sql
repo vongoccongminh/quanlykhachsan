@@ -70,7 +70,9 @@ CREATE TABLE CHITIETKYGUIHANHLY
 CREATE TABLE THONGTINTRAPHONG 
 (
 	matp int not null AUTO_INCREMENT,
-	tgtraphong datetime,
+        mathuephong int,
+	manv int,
+	thoigiantraphong datetime,
 	chiphiphatsinh float,
 	mota nvarchar(50),
 	tongien float,
