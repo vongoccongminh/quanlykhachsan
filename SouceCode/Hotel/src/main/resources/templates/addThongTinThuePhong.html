@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<head th:replace="layout :: head"></head>
+<nav th:replace="layout :: header"></nav>
+
+<div class="container main-content form">
+	<br /> <br /> <br /> <br />
+	<h2>Thêm Thông tin thuê phòng mới!</h2>
+	<br/>
+	<div class="form-group row">
+		<form class="form-horizontal" action="#" th:action="@{/ThongTinThuePhong/save}"
+			th:object="${ThongTinThuePhong}" method="POST" novalidate="novalidate">
+			<input type="hidden" th:field="*{matp}" />
+			<div class="col-xs-5">
+				<div class="form-group">
+					<label>Mã Đặt Phòng</label> <input type="text" class="form-control"
+						placeholder="Mã Đặt Phòng" th:field="*{madp}" />
+				</div>
+
+				<div class="form-group">
+					<label>Giá Thuê Phòng</label> <input type="text" class="form-control"
+						placeholder="Giá Thuê Phòng" th:field="*{GiaThuePhong}" />
+				</div>
+
+				<div class="form-group">
+					<label>Giấy Tờ Tạm Giữ</label> <input type="text" class="form-control"
+						placeholder="Giấy Tờ Tạm Giữ" th:field="*{GiayToTamGiu}" />
+				</div>
+
+			</div>
+				<br />
+				<button type="submit" class="btn btn-primary btn-md">Add</button>
+				
+
+
+
+		</form>
+	</div>
+</div>
+<br />
+<br />
+<br />
+
+<!-- /.container -->
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

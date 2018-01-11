@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+
+
+    <nav th:replace="layout :: header"></nav>
+    <div class="container" style="margin: 20px auto;"></div>
+		<div class="row">
+		      <!-- left column -->
+		      
+		      <div class="col-md-2">
+
+		      </div>
+		      
+		      <!-- edit form column -->
+		      <div class="col-md-10 personal-info">
+		
+		        <h3>Chỉnh sửa Phòng</h3>
+		        
+		        <form class="form-horizontal" action="#" th:action="@{/phong/save}" th:object="${phong}" method="POST" novalidate="novalidate">
+		        
+		        	  <div class="form-group">
+			            <label class="col-lg-3 control-label">Mã Phòng:</label>
+			            <div class="col-lg-8">
+			            		<input type="text" class="form-control" th:field="*{Maphong}"/> 
+			            </div>
+		          </div>
+		          <div class="form-group">
+			            <label class="col-lg-3 control-label">Tên Phòng:</label>
+			            <div class="col-lg-8">
+							<input type="text" class="form-control"  th:field="*{Tenphong}" />
+			            </div>
+		          </div>
+		          <div class="form-group">
+			            <label class="col-lg-3 control-label">Giá Phòng</label>
+			            <div class="col-lg-8">
+							<input type="text" class="form-control" th:field="*{Giaphong}" />
+			            </div>
+		          </div>
+		          
+		          <div class="form-group">
+			            <label class="col-lg-3 control-label">Mô Tả:</label>
+			            <div class="col-lg-8">
+							<textarea type="text" class="form-control" th:field="*{Mota}">
+							</textarea>
+			            </div>
+		          </div>
+		          <div class="form-group">
+			            <label class="col-lg-3 control-label">Tên Loại: </label>
+			            <div class="col-lg-8">
+			              <div class="ui-select">
+								<th:block th:unless="${#lists.isEmpty(loaiphongalls)}">
+									<select  class="form-control" th:field="*{Maloai}">
+											<option th:each="loaiphongall,iterStat : ${loaiphongalls}" th:text="${loaiphongall.Tenloai}" th:value="${loaiphongall.Maloai}"></option>
+									</select>
+								</th:block>
+			              </div>
+			            </div>
+		          </div>
+		          
+		          
+		          <div class="form-group">
+			            <label class="col-md-3 control-label">Tình trạng: </label>
+			            <div class="col-md-8">
+							<label class="control-label pull-left" th:each="tinhtrangphong,iterStat : ${tinhtrangphongs}" th:text="${tinhtrangphong.Tinhtrang}"></label>
+			            </div>
+		          </div>
+		          
+		          <div class="form-group">
+			            <label class="col-md-3 control-label"></label>
+			            <div class="col-md-8">
+					
+						<button type="submit" target="_blank" class="btn btn-success"><i class="fa fa-edit"></i> SAVE </button>
+						 <a th:href="@{'/phong/chitietphong/' + ${phong.Maphong}}" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn  btn-default">
+						 BACK
+						 </a>
+			            </div>
+		          </div>
+		        </form>
+		      </div>
+		</div>
+    <footer th:replace="layout :: footer"></footer>
+</body>
+</html>
