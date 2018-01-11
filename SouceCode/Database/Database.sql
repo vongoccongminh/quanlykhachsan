@@ -138,7 +138,7 @@ CREATE TABLE KHACHHANG
 
 CREATE TABLE LOAIKHACHHANG
 (
-	MaLoaiKH int,
+	MaLoaiKH int auto_increment,
 	TenLoaiKH nvarchar(50),
 	MoTa nvarchar(100),
 	PRIMARY KEY(MaLoaiKH)
