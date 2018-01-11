@@ -213,7 +213,7 @@ CREATE TABLE THIETBI
 
 CREATE TABLE LOAITHIETBI
 (
-	MaLoai				int,
+	MaLoai				int auto_increment,
 	TenLoai				nvarchar(50),
 	HangSX				nvarchar(50),
 	DichVuBaoTri		nvarchar(100),
