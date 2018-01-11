@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.httt.model.ThietBi;
 
 public interface ThietBiRepository extends CrudRepository<ThietBi, Integer> {
-	//List<ThietBi> FindBysoseriContaining(String q);
+	List<ThietBi> findBytentbContaining(String q);
 }
 
 

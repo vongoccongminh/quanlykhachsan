@@ -1,6 +1,5 @@
 package com.httt.service;
 
-
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.httt.model.ThietBi;

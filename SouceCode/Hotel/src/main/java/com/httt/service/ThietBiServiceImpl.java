@@ -20,7 +20,7 @@ public class ThietBiServiceImpl implements ThietBiService {
 	
 	@Override
 	public List<ThietBi> search(String q) {
-		return  null;//thietBiRepository.FindBysoseriContaining(q);
+		return  thietBiRepository.findBytentbContaining(q);
 	}
 
 	@Override
