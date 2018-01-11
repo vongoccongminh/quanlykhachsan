@@ -71,7 +71,7 @@ CREATE TABLE THONGTINTRAPHONG
 (
 	matp int not null AUTO_INCREMENT,
         mathuephong int,
-	manv int,
+	makh int,
 	thoigiantraphong datetime,
 	chiphiphatsinh float,
 	mota nvarchar(50),
