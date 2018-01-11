@@ -20,6 +20,8 @@ import com.httt.model.ThietBi;
 import com.httt.service.ThietBiService;
 import com.httt.model.LoaiThietBi;
 import com.httt.service.LoaiThietBiService;
+import com.httt.model.Phong;
+import com.httt.service.PhongService;
 
 @Controller
 public class ThietBiController {
@@ -28,6 +30,9 @@ public class ThietBiController {
 	
 	@Autowired
 	private LoaiThietBiService loaiThietBiService;
+	
+	@Autowired
+	private PhongService phongService;
 	
 
 	@GetMapping({"/thietbi","/"})
@@ -72,6 +77,9 @@ public class ThietBiController {
 		
 		List <LoaiThietBi> listLTB = (List<LoaiThietBi>)this.loaiThietBiService.findAll();
 		model.addAttribute("loaithietbis", listLTB);
+		
+		List <Phong> listPhong = (List<Phong>)this.phongService.findAll();
+		model.addAttribute("phongs", listPhong);
 		
 		
 				
