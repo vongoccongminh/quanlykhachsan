@@ -19,6 +19,9 @@
 	</div>
 	<th:block th:if="${#lists.isEmpty(khachhangs)}">
 		<h3>KHÔNG TỒN TẠI KHÁCH HÀNG NÀO</h3>
+				<a th:href="@{/khachhang/create}" class="btn btn-success pull-left">
+                	<span class="glyphicon glyphicon-plus"></span>Thêm khách hàng
+               	</a>
 	</th:block>
 	<th:block th:unless="${#lists.isEmpty(khachhangs)}">
 		<div class="row">
@@ -37,7 +40,7 @@
 			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
-						<th></th>
+						<th>STT</th>
 						<th>Mã khách hàng</th>
 						<th>Tên khách hàng</th>
 						<th>Phái</th>
