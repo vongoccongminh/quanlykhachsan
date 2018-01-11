@@ -1,4 +1,7 @@
+/*
+
 package com.httt.config;
+
 
 
 import javax.sql.DataSource;
@@ -23,7 +26,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     // roles admin allow to access /admin/**
     // roles user allow to access /user/**
     // custom 403 access denied handler
-    
+    //
    
     
     @Override
@@ -48,3 +51,4 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
  
 }
+*/
