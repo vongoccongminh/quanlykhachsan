@@ -65,7 +65,7 @@ CREATE TABLE CHITIETKYGUIHANHLY
 );
 
 
-CREATE TABLE THONGTINTRAPHONG 
+CREATE TABLE thongtintraphong
 (
 	matp int not null AUTO_INCREMENT,
         mathuephong int,
@@ -251,7 +251,7 @@ create table THONGTINHUYDATPHONG
 	PRIMARY KEY (MaHuyDP)
 );
 
-create table THONGTINDATPHONG
+create table thongtindatphong
 (
 madp int AUTO_INCREMENT PRIMARY KEY,
 ngaydp datetime,
