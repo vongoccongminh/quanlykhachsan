@@ -20,22 +20,18 @@ CREATE TABLE LOAIBAOCAO
 	PRIMARY KEY(MaLoaiBaoCao)
 );
 
-CREATE TABLE DICHVU
-(
-	MaDV int,
-	TenDV nvarchar(50),
-	MoTa nvarchar(50),
-	DonGia float,
-	LoaiDV int,
-	PRIMARY KEY(MaDV)
+CREATE TABLE dichvu (
+maDV INT  NOT NULL auto_increment PRIMARY KEY,
+tenDV nvarchar ( 50 ) NOT NULL,
+loaiDV INT NOT NULL,
+moTa nvarchar ( 50 ),
+donGia INT 
 );
 
-CREATE TABLE LOAIDICHVU
-(
-	MaLoaiDV int,
-	TenLoaiDV nvarchar(20),
-	MoTa nvarchar(50),
-	PRIMARY KEY(MaLoaiDV)
+CREATE TABLE loaidichvu (
+maLDV INT NOT NULL auto_increment PRIMARY KEY,
+tenLDV nvarchar(50) NOT NULL,
+moTa nvarchar (50)
 );
 
 CREATE TABLE CHITIETTHUEDICHVU
@@ -295,10 +291,10 @@ ADD CONSTRAINT BaoCao_MaNhanVien
 FOREIGN KEY (NguoiLap)
 REFERENCES NhanVien(MaNV);
 
-ALTER TABLE DICHVU
+ALTER TABLE dichvu
 ADD CONSTRAINT DichVu_LoaiDV
-FOREIGN KEY (LoaiDV)
-REFERENCES LoaiDichVu(MaLoaiDV);
+FOREIGN KEY (loaiDV)
+REFERENCES loaidichvu(maLDV);
 
 ALTER TABLE CHITIETTHUEDICHVU
 ADD CONSTRAINT CTThueDV_MaTP
