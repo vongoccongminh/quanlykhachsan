@@ -163,6 +163,8 @@ CREATE TABLE THONGKE
 	SLPhongTrong2 int,
 	SLKhachHang1 int,
 	SLKhachHang2 int,
+	SLPhongDuocDat1 int,
+	SLPhongDuocDat2 int,
 	LoaiTK int,
 	MaNV int,
 	PRIMARY KEY (MaThongKe)
