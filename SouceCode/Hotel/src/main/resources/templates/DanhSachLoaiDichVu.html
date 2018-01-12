@@ -15,46 +15,42 @@
 			<span th:text="${success}"></span>
 		</div>
 		<div class="row">
-			<a th:href="@{/dichvu/create}" class="btn btn-success pull-left">
-				<span class="glyphicon glyphicon-plus"></span> Add new service
+			<a th:href="@{/loaidichvu/create}" class="btn btn-success pull-left">
+				<span class="glyphicon glyphicon-plus"></span> Add new service group
 			</a>
 			<form class="form-inline pull-right" action="#"
-				th:action="@{/dichvu/search}" method="GET">
+				th:action="@{/loaidichvu/search}" method="GET">
 				<div class="form-group">
 					<input type="text" class="form-control" name="s"
-						placeholder="Type service name..." />
+						placeholder="Type group service name..." />
 				</div>
 				<button type="submit" class="btn btn-primary">Search</button>
 			</form>
 		</div>
-		<th:block th:if="${#lists.isEmpty(Dichvus)}">
-			<h3>No service</h3>
+		<th:block th:if="${#lists.isEmpty(Loaidichvus)}">
+			<h3>No group service</h3>
 		</th:block>
 
-		<th:block th:unless="${#lists.isEmpty(Dichvus)}">
+		<th:block th:unless="${#lists.isEmpty(Loaidichvus)}">
 			<div class="row">
 				<table class="table table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>MaDV</th>
-							<th>TenDV</th>
-							<th>LoaiDV</th>
+							<th>MaLDV</th>
+							<th>TenLDV</th>
 							<th>MoTa</th>
-							<th>DonGia</th>
 							<th>Edit</th>
 							<th>Delete</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="contact,iterStat : ${Dichvus}">
+						<tr th:each="contact,iterStat : ${Loaidichvus}">
 							<td th:text="${iterStat.count}"></td>
-							<td th:text="${contact.tenDV}"></td>
-							<td th:text="${contact.loaiDV}"></td>
+							<td th:text="${contact.tenLDV}"></td>
 							<td th:text="${contact.moTa}"></td>
-							<td th:text="${contact.donGia}"></td>
-							<td><a th:href="@{/dichvu/{maDV}/edit(maDV=${contact.maDV})}"><span
+							<td><a th:href="@{/loaidichvu/{maLDV}/edit(maLDV=${contact.maLDV})}"><span
 									class="glyphicon glyphicon-pencil"></span></a></td>
-							<td><a th:href="@{/dichvu/{maDV}/delete(maDV=${contact.maDV})}"><span
+							<td><a th:href="@{/loaidichvu/{maLDV}/delete(maLDV=${contact.maLDV})}"><span
 									class="glyphicon glyphicon-trash"></span></a></td>
 						</tr>
 					</tbody>
