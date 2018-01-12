@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<head th:replace="layout :: head"></head>
+<nav th:replace="layout :: header"></nav>
+
+
+<div class="container">
+	<br /> <br /> <br /> <br />
+	<h1>
+		Thông tin chi tiết của phòng:
+		<b th:text="${traphong.mathuephong}"></b>
+	</h1>
+	<br /> <br /> <br />
+
+	<div class="col-sm-5">
+		<form action="#" th:action="@{/traphong/{matp}/chitiet}"
+			th:object="${traphong}" method="POST" novalidate="novalidate">
+			<input type="hidden" th:field="*{matp}" />
+
+			<div class="form-group">
+				<label>Mã thuê phòng</label> 
+				<input type="text" class="form-control"
+					 th:field="*{mathuephong}" />
+			</div>
+
+
+			<div class="form-group">
+				<label>Mã khách hàng</label>
+				<input type="text" class="form-control" th:field="*{makh}"/>
+			</div>
+
+			<div class="form-group">
+				<label>Thời gian trả phòng</label>
+				<input type="date" name="" class="form-control" value = "2018-01-01" th:field="*{thoigiantraphong}"/>
+			</div>
+
+			
+
+			<div class="form-group">
+				 <label>Mô tả</label>
+			<input type="text" name="" class="form-control" th:field="*{mota}"/>
+			</div>
+
+			<div class="form-group">
+				<label> Chi phí phát sinh </label>
+			<input type="text" name="" class="form-control" th:field="*{chiphiphatsinh}"/>
+			</div>
+
+			<div class="form-group">
+				<label> Tổng tiền </label>
+			<input type="text" name="" class="form-control" th:field="*{tongtien}"/>
+			</div>
+			
+				
+		</form>
+		<br/>
+		<form class="form-inline pull-right" action="#"
+				th:action="@{/traphong}" method="GET">
+				
+				<button type="submit" class="btn btn-primary">Come back</button>
+			</form>
+	</div>
+</div>
+
+<br />
+<br />
+<br />
+
+<!-- /.container -->
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

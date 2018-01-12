@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<head th:replace="layout :: head"></head>
+<nav th:replace="layout :: header"></nav>
+
+<div class="container main-content form">
+	<br /> <br /> <br /> <br />
+	<h2>Sửa thông tin đặt phòng!</h2>
+	<br/>
+	<div class="form-group row">
+		<form class="form-horizontal" action="#" th:action="@{/datphong/save}"
+			th:object="${datphong}" method="POST" novalidate="novalidate">
+			<input type="hidden" th:field="*{madp}" />
+			<div class="col-xs-5">
+				<div class="form-group">
+					<label>Ngaydp</label> <input type="date" class="form-control"
+						placeholder="ngaydp" th:field="*{ngaydp}" />
+				</div>
+
+
+
+				<div class="form-group">
+					<label>ngaybd</label> <input id="date" type="date"
+						placeholder="Ngày sinh" value="2017-12-010" class="form-control"
+						th:field="*{ngaybd}" />
+				</div>
+
+				<div class="form-group">
+					<label>ngaykt</label> <input id="date" type="date"
+						placeholder="Ngày ket thúc" value="2017-12-010" class="form-control"
+						th:field="*{ngaykt}" />
+				</div>
+
+
+				<div class="form-group">
+					<label>mô tả</label> <input type="text" class="form-control"
+						placeholder="mô tả" th:field="*{mota}" />
+				</div>
+
+				<div class="form-group">
+					<label>ma nhan vien</label> <input type="text" class="form-control"
+						placeholder="mã nhân viên" th:field="*{manv}" />
+				</div>
+
+				<div class="form-group">
+					<label>ma khach hang</label> <input type="text" class="form-control"
+						placeholder="mã khach hàng" th:field="*{makh}" />
+				</div>
+
+
+
+				<br />
+				<button type="submit" class="btn btn-primary btn-md">Submit</button>
+			</div>
+
+			
+
+
+		</form>
+	</div>
+</div>
+<br />
+<br />
+<br />
+
+<!-- /.container -->
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

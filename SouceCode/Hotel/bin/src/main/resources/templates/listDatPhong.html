@@ -3,7 +3,7 @@
 <head th:replace="layout :: head"></head>
 <body>
 	<nav th:replace="layout :: header"></nav>
-
+	<br /> 	<br /> 	<br /> 	<br /> <br />
 	<div class="container main-content list">
 		<div th:if="${success}"
 			class="row alert alert-success alert-dismissible">
@@ -35,29 +35,29 @@
 				<table class="table table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>madp</th>
-							<th>ngaydp</th>
-							<th>ngaybd</th>
-							<th>ngaykt</th>
-							<th>mo ta</th>
-							<th>ma nhan vien</th>
-							<th>ma khach hang</th>
+							<th>Mã đặt phòng</th>
+							<th>Ngày đặt phòng</th>
+							<th>Ngày bắt đầu</th>
+							<th>Ngày kết thúc</th>
+							<th>Mô tả</th>
+							<th>Mã nhân viên</th>
+							<th>Mã khách hàng</th>
 							<th>Edit</th>
 							<th>Delete</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="contact,iterStat : ${datphongs}">
-							<td th:text="${iterStat.count}"></td>
-							<td th:text="${contact.madp}"></td>
-							<td th:text="${contact.ngaybd}"></td>
-							<td th:text="${contact.ngaykt}"></td>
-							<td th:text="${contact.mota}"></td>
-							<td th:text="${contact.manv}"></td>
-							<td th:text="${contact.makh}"></td>
-							<td><a th:href="@{/datphong/{madp}/edit(madp=${contact.madp})}"><span
+						<tr th:each="datphong,iterStat : ${datphongs}">
+							<td th:text="${datphong.madp}"></td>
+							<td th:text="${datphong.ngaydp}"></td>
+							<td th:text="${datphong.ngaybd}"></td>
+							<td th:text="${datphong.ngaykt}"></td>
+							<td th:text="${datphong.mota}"></td>
+							<td th:text="${datphong.manv}"></td>
+							<td th:text="${datphong.makh}"></td>
+							<td><a th:href="@{/datphong/{madp}/edit(madp=${datphong.madp})}"><span
 									class="glyphicon glyphicon-pencil"></span></a></td>
-							<td><a th:href="@{/datphong/{madp}/delete(madp=${contact.madp})}"><span
+							<td><a th:href="@{/datphong/{madp}/delete(madp=${datphong.madp})}"><span
 									class="glyphicon glyphicon-trash"></span></a></td>
 						</tr>
 					</tbody>

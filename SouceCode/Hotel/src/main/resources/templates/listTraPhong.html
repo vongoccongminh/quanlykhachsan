@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+	<nav th:replace="layout :: header"></nav>
+		<br /> 	<br /> 	<br /> 	<br />
+
+	<div class="container main-content list">
+		<div th:if="${success}"
+			class="row alert alert-success alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">×</span>
+			</button>
+			<span th:text="${success}"></span>
+		</div>
+		<div class="row">
+			<a th:href="@{/traphong/create}" class="btn btn-success pull-left">
+				<span class="glyphicon glyphicon-plus"></span> Thong tin tra phong
+			</a>
+			<form class="form-inline pull-right" action="#"
+				th:action="@{/traphong/search}" method="GET">
+				<div class="form-group">
+					<input type="text" class="form-control" name="s"
+						placeholder="Type ma tra phong here..." />
+				</div>
+				<button type="submit" class="btn btn-primary">Search</button>
+			</form>
+		</div>
+		<th:block th:if="${#lists.isEmpty(traphongs)}">
+			<h3>No info</h3>
+		</th:block>
+
+		<th:block th:unless="${#lists.isEmpty(traphongs)}">
+			<div class="row">
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>Mã trả phòng</th>
+							<th>Mã thuê phòng</th>
+							<th>Mã khách hàng</th>
+							<th>Giời gian trả phòng</th>
+							<th>Mô tả</th>
+							<th>Chi phí phát sinh</th>
+							<th>Tổng tiền</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="traphong,iterStat : ${traphongs}">
+							<td th:text="${traphong.matp}"></td>
+							<td th:text="${traphong.mathuephong}"></td>
+							<td th:text="${traphong.makh}"></td>
+							<td th:text="${traphong.thoigiantraphong}"></td>
+							<td th:text="${traphong.mota}"></td>
+										<td th:text="${traphong.chiphiphatsinh}"></td>
+							<td th:text="${traphong.tongtien}"></td>
+							<td><a th:href="@{/traphong/{matp}/edit(matp=${traphong.matp})}"><span
+									class="glyphicon glyphicon-pencil"></span></a></td>
+							<td><a th:href="@{/traphong/{matp}/delete(matp=${traphong.matp})}"><span
+									class="glyphicon glyphicon-trash"></span></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</th:block>
+	</div>
+	<!-- /.container -->
+
+	<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

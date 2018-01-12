@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ttdatphong")
+@Table(name = "thongtindatphong")
 public class DatPhong implements Serializable {
 	/**
 	 * 
@@ -29,17 +29,21 @@ public class DatPhong implements Serializable {
 	@Column(name = "ngaybd")
 	private Date ngaybd;
 
-	@Column(name = "ngaykt")
-	private Date ngaykt;
+	public DatPhong() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-	@Column(name = "mota")
-	private String mota;
-
-	@Column(name = "manv")
-	private int manv;
-
-	@Column(name = "makh")
-	private int makh;
+	public DatPhong(int madp, Date ngaydp, Date ngaybd, Date ngaykt, String mota, int manv, int makh) {
+		super();
+		this.madp = madp;
+		this.ngaydp = ngaydp;
+		this.ngaybd = ngaybd;
+		this.ngaykt = ngaykt;
+		this.mota = mota;
+		this.manv = manv;
+		this.makh = makh;
+	}
 
 	public int getMadp() {
 		return madp;
@@ -97,21 +101,19 @@ public class DatPhong implements Serializable {
 		this.makh = makh;
 	}
 
-	public DatPhong(int madp, Date ngaydp, Date ngaybd, Date ngaykt, String mota, int manv, int makh) {
-		super();
-		this.madp = madp;
-		this.ngaydp = ngaydp;
-		this.ngaybd = ngaybd;
-		this.ngaykt = ngaykt;
-		this.mota = mota;
-		this.manv = manv;
-		this.makh = makh;
-	}
+	@Column(name = "ngaykt")
+	private Date ngaykt;
 
-	public DatPhong() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	@Column(name = "mota")
+	private String mota;
+
+	@Column(name = "manv")
+	private int manv;
+
+	@Column(name = "makh")
+	private int makh;
+
+	
 
 	
 	

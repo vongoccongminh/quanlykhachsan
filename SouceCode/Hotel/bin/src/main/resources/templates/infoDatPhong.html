@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<head th:replace="layout :: head"></head>
+<nav th:replace="layout :: header"></nav>
+
+
+<div class="container">
+	<br /> <br /> <br /> <br />
+	<h1>
+	Thông tin đặt phòng:
+		<b th:text="${datphong.madp}"></b>
+	</h1>
+	<br /> <br /> <br />
+
+	<div class="col-sm-5">
+		<form action="#" th:action="@{/datphong/{id}/detail}"
+			th:object="${datphong}" method="POST" novalidate="novalidate">
+			<input type="hidden" th:field="*{madp}" />
+
+			
+
+
+
+			<div class="form-group">
+				<label>Ngày sinh</label> <input id="date" type="date"
+					class="form-control" readonly="readonly" th:field="*{ngaydp}" />
+			</div>
+			
+			<div class="form-group">
+				<label>Ngày sinh</label> <input id="date" type="date"
+					class="form-control" readonly="readonly" th:field="*{ngaybd}" />
+			</div>
+			
+			<div class="form-group">
+				<label>Ngày sinh</label> <input id="date" type="date"
+					class="form-control" readonly="readonly" th:field="*{ngaykt}" />
+			</div>
+			
+			<div class="form-group">
+				<label>Giới tính</label> <input type="text" class="form-control"
+					readonly="readonly" th:field="*{mota}" />
+			</div>
+
+			<div class="form-group">
+				<label>Địa chỉ</label> <input type="text" class="form-control"
+					readonly="readonly" th:field="*{manv}" />
+			</div>
+
+			<div class="form-group">
+				<label>Số điện thoại</label> <input type="text" class="form-control"
+					readonly="readonly" th:field="*{makh}" />
+			</div>
+
+				
+		</form>
+		<br/>
+		<form class="form-inline pull-right" action="#"
+				th:action="@{/datphong}" method="GET">
+				
+				<button type="submit" class="btn btn-primary">Come back</button>
+			</form>
+	</div>
+</div>
+
+<br />
+<br />
+<br />
+
+<!-- /.container -->
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

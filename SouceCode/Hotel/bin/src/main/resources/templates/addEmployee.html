@@ -63,14 +63,12 @@
 					<label>Lương</label> <input type="text" class="form-control"
 						placeholder="Lương" th:field="*{salary}" />
 				</div>
-				
+
 				<div class="form-group">
-				<label>Bộ phận</label>
-				<select th:field="*{dept}">
-                         <option th:each="dept : ${listDepartment}"
-                            th:value="${dept.id}"
-                            th:utext="${dept.name}"/>
-                  </select>
+					<label>Bộ phận</label> <select th:field="*{dept}">
+						<option th:each="dept : ${listDepartment}" th:value="${dept.id}"
+							th:utext="${dept.name}" />
+					</select>
 				</div>
 
 				<!-- 
@@ -83,7 +81,7 @@
 						
 					</select>
 				</div> -->
-				
+
 
 				<!-- 
 				<div class="form-group">
@@ -99,7 +97,7 @@
 
 				<div class="form-group">
 					<label>Mật khẩu</label> <input type="password" class="form-control"
-						placeholder="Mật khẩu" th:field="*{passwords}" />
+						placeholder="Mật khẩu" th:field="*{password}" />
 				</div>
 
 
@@ -109,6 +107,13 @@
 						<option value="False">Block</option>
 					</select>
 
+				</div>
+
+				<div class="form-group">
+					<label>Quyền</label> <select th:field="*{role}">
+						<option value="ROLE_ADMIN">Admin</option>
+						<option value="ROLE_EMPLOYEE">Employee</option>
+					</select>
 				</div>
 
 

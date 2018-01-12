@@ -18,9 +18,9 @@
 		<span th:text="${success}"></span>
 	</div>
 	<th:block th:if="${#lists.isEmpty(thietbis)}">
-		<h3>KHÔNG TỒN TẠI THIẾT BỊ NÀO TRONG HỆ THỐNG</h3>
+		<h3>KHÔNG TỒN TẠI THIẾT BỊ TRONG HỆ THỐNG</h3>
 		<a th:href="@{/thietbi/tao}" class="btn btn-success pull-left">
-                	<span class="glyphicon glyphicon-plus"></span>Thêm thiết bị
+                	<span class="glyphicon glyphicon-plus"></span>Thêm thiết bị mới
                	</a>
                	
 	</th:block>
@@ -28,7 +28,7 @@
 		<div class="row">
 		<h2 style = "center;">DANH SÁCH CÁC THIẾT BỊ TRONG HỆ THỐNG</h2>
 		 		<a th:href="@{/thietbi/tao}" class="btn btn-success pull-left">
-                	<span class="glyphicon glyphicon-plus"></span>Thêm thiết bị
+                	<span class="glyphicon glyphicon-plus"></span> Thêm thiết bị mới
                	</a>
                	<form class="form-inline pull-right" action="#"
 					th:action="@{/thietbi/search}" method="GET">
@@ -52,7 +52,7 @@
 						<th>Tình trạng</th>
 						<th>Sử dụng trong phòng</th>
 						<th>Nhân viên quản lý</th>
-						<th>Loại</th>
+						<th>Loại thiết bị</th>
 						<th>Chỉnh sửa</th>
 						<th>Xóa</th>
 					</tr>

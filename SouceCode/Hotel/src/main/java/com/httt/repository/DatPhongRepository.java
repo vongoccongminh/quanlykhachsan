@@ -8,6 +8,6 @@ import com.httt.model.DatPhong;
 
 public interface DatPhongRepository extends CrudRepository<DatPhong, Integer> {
 
-    List<DatPhong> findBymadpContaining(int madp);
+	   DatPhong findByMadp(Integer madp);
 
-}
+	}

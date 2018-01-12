@@ -20,7 +20,7 @@
 				</div>
 				
 				<div class="form-group">
-					<label>Giới tính</label> <select th:field="*{phai}">
+					<label>Giới tính</label> <select class="form-control" th:field="*{phai}">
 						<option value="Nam">Nam</option>
 						<option value="Nữ">Nữ</option>
 						<option value="Khác">Khác</option>
@@ -45,14 +45,14 @@
 				
 				<div class="form-group">
 				<label>Loại khách hàng</label>
-				<select th:field="*{maloaikh}">
+				<select class="form-control" th:field="*{maloaikh}">
                          <option th:each="maloaikh : ${listLKH}"
                             th:value="${maloaikh.maloaikh}"
                             th:utext="${maloaikh.tenloaikh}"/>
                   </select>
 				</div>
 				<br />
-				<button type="submit" class="btn btn-primary btn-md">Lưu</button>
+				<button type="submit" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-ok-circle"></span> Xác nhận</button>
 			</div>
 		</form>
 	</div>

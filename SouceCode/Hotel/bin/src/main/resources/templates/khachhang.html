@@ -13,7 +13,7 @@
 		class="row alert alert-success alert-dismissible">
 		<button type="button" class="close" data-dismiss="alert"
 			aria-label="Close">
-			<span aria-hidden="true"></span>
+			<span aria-hidden="true">x</span>
 		</button>
 		<span th:text="${success}"></span>
 	</div>
@@ -35,7 +35,7 @@
 						<input type="text" class="form-control" name="s"
 							placeholder="Nhập số CMND ..." />
 					</div>
-					<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+					<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
 				</form>
 			<table class="table table-bordered table-hover">
 				<thead>
@@ -62,7 +62,7 @@
 						<td th:text="${khachhang.sdt}"></td>
 						<td th:text="${khachhang.diachi}"></td>
 						<td th:text="${khachhang.maloaikh}"></td>
-						<td><a th:href="@{/khachhang/{id}/edit(id=${khachhang.makh})}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+						<td><a th:href="@{/khachhang/{id}/edit(id=${khachhang.makh})}"><span class="glyphicon glyphicon-edit"></span></a></td>
                         <td><a th:href="@{/khachhang/{id}/delete(id=${khachhang.makh})}"><span class="glyphicon glyphicon-trash"></span></a></td>
 					</tr>
 				</tbody>

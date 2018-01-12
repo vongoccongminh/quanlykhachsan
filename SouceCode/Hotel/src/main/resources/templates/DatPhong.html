@@ -3,35 +3,39 @@
 <head th:replace="layout :: head"></head>
 <body>
     <nav th:replace="layout :: header"></nav>
-
+		<br /> 	<br /> 	<br /> 	<br />
+	
     <div class="container main-content form">
         <div class="row">
           <form action="#" th:action="@{/datphong/save}" th:object="${datphong}"
 		    method="POST" novalidate="novalidate">
 		    
 		    
+		   <div class="form-group">
+					<label>Ngày đặt phòng</label> <input id="date" type="date"
+						placeholder="Ngày đặt phòng" value="2017-12-010" class="form-control"
+						th:field="*{ngaydp}" />
+				</div>
+		     <div class="form-group">
+					<label>Ngày bắt đầu</label> <input id="date" type="date"
+						placeholder="Ngày bắt đầu" value="2017-12-010" class="form-control"
+						th:field="*{ngaybd}" />
+				</div>
 		    <div class="form-group">
-		        <label>ngaydp</label> 
-		        <input type="text" class="form-control" th:field="*{ngaydp}" />
-		    </div>
+					<label>Ngày kết thúc</label> <input id="date" type="date"
+						placeholder="Ngày kết thúc" value="2017-12-010" class="form-control"
+						th:field="*{ngaykt}" />
+				</div>
 		     <div class="form-group">
-		        <label>ngaybd</label> 
-		        <input type="text" class="form-control" th:field="*{ngaybd}" />
-		    </div>
-		     <div class="form-group">
-		        <label>ngaykt</label> 
-		        <input type="text" class="form-control" th:field="*{ngaykt}" />
-		    </div>
-		     <div class="form-group">
-		        <label>mo ta</label> 
+		        <label>Mô tả</label> 
 		        <input type="text" class="form-control" th:field="*{mota}" />
 		    </div>
 		     <div class="form-group">
-		        <label>ma nhan vien</label> 
+		        <label>Mã nhân viên</label> 
 		        <input type="text" class="form-control" th:field="*{manv}" />
 		    </div>
 		     <div class="form-group">
-		        <label>ma khach hang</label> 
+		        <label>Mã khách hàng</label> 
 		        <input type="text" class="form-control" th:field="*{makh}" />
 		    </div>
 		    <button type="submit" class="btn btn-primary">Save</button>

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.httt.service.DatPhongService;
 import com.httt.model.DatPhong;
 import com.httt.repository.DatPhongRepository;
 
@@ -19,8 +20,8 @@ public class DatPhongServiceImpl implements DatPhongService {
     }
 
     @Override
-    public List<DatPhong> search(int q) {
-        return datphongRepository.findBymadpContaining(q);
+    public DatPhong search(int q) {
+        return datphongRepository.findByMadp(q);
     }
 
     @Override
@@ -29,8 +30,8 @@ public class DatPhongServiceImpl implements DatPhongService {
     }
 
     @Override
-    public void save(DatPhong contact) {
-    	datphongRepository.save(contact);
+    public void save(DatPhong datphong) {
+    	datphongRepository.save(datphong);
     }
 
     @Override

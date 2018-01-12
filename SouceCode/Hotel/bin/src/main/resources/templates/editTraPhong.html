@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<head th:replace="layout :: head"></head>
+<nav th:replace="layout :: header"></nav>
+
+<div class="container main-content form">
+	<br /> <br /> <br /> <br />
+	<h2>Sửa thông tin trả phòng!</h2>
+	<br/>
+	<div class="form-group row">
+		<form class="form-horizontal" action="#" th:action="@{/traphong/save}"
+			th:object="${traphong}" method="POST" novalidate="novalidate">
+			<input type="hidden" th:field="*{matp}" />
+			<div class="col-xs-5">
+				<div class="form-group">
+					<label>Mã thuê phòng</label> <input type="text" class="form-control"
+						placeholder="mã thuê phòng" th:field="*{mathuephong}" />
+				</div>
+
+
+
+				<div class="form-group">
+					<label>Mã khách hàng</label> <input type="text" class="form-control"
+						placeholder="mã khách hàng" th:field="*{makh}" />
+				</div>
+
+				<div class="form-group">
+					<label>Thời gian trả phòng</label> <input id="date" type="date"
+						placeholder="thời gian trả phòng" value="2017-12-010" class="form-control"
+						th:field="*{thoigiantraphong}" />
+				</div>
+
+
+				<div class="form-group">
+					<label>mô tả</label> <input type="text" class="form-control"
+						placeholder="mô tả" th:field="*{mota}" />
+				</div>
+
+				<div class="form-group">
+					<label>Chi phí phát sinh</label> <input type="text" class="form-control"
+						placeholder="chiphiphatsinh" th:field="*{chiphiphatsinh}" />
+				</div>
+
+				<div class="form-group">
+					<label>Tổng tiền</label> <input type="text" class="form-control"
+						placeholder="Tổng tiền" th:field="*{tongtien}" />
+				</div>
+
+
+
+				<br />
+				<button type="submit" class="btn btn-primary btn-md">Submit</button>
+			</div>
+
+			
+
+
+		</form>
+	</div>
+</div>
+<br />
+<br />
+<br />
+
+<!-- /.container -->
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>
