@@ -20,6 +20,7 @@ import com.httt.model.Department;
 import com.httt.model.Employee;
 import com.httt.service.DepartmentService;
 import com.httt.service.EmployeeService;
+import com.httt.service.UploadService;
 
 @Controller
 public class EmployeeController {
@@ -75,7 +76,7 @@ public class EmployeeController {
 			id = employee.getId();
 			Employee tempEmployee = employeeService.findOne(id);
 			
-			employee.setPasswords(tempEmployee.getPasswords());
+			employee.setPassword(tempEmployee.getPassword());
 			employeeService.save(employee);
 			System.out.println("ko");
 			
@@ -83,11 +84,11 @@ public class EmployeeController {
 		}
 		
 		//hash passwords
-		String passwords = employee.getPasswords();
+		String passwords = employee.getPassword();
 		System.out.println(passwords);
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String hashedPassword = passwordEncoder.encode(passwords);
-		employee.setPasswords(hashedPassword);
+		employee.setPassword(hashedPassword);
 		
 		employeeService.save(employee);
 		redirect.addFlashAttribute("success", "Saved employee successfully!");

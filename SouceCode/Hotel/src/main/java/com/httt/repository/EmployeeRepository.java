@@ -10,5 +10,6 @@ import com.httt.model.Employee;
 
 public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
     List<Employee> findByNameContaining(String q);
+    public Employee findByUsername(String username);
 
 }

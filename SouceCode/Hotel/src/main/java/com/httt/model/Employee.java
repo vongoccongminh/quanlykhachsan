@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,7 +15,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import com.httt.model.Role;
 
 @Entity
 @Table(name = "Employee")
@@ -51,8 +51,8 @@ public class Employee implements Serializable {
     @Column(name = "username")
     private String username;
     
-    @Column(name = "passwords")
-    private String passwords;
+    @Column(name = "password")
+    private String password;
     
     @Column(name = "status")
     private boolean status;
@@ -63,16 +63,12 @@ public class Employee implements Serializable {
     @Column(name = "gender")
     private String gender;
     
-    @ManyToMany
-    @JoinTable(
-            name = "employee_role",
-            joinColumns = @JoinColumn(name = "employee_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private Set<Role> roles;
+    @Column(name = "role")
+    private String role;
 
+    public Employee(){}
 	public Employee(int id, String name, Date birth_day, String address, String phone, String passport, float salary,
-			int dept, String username, String passwords, boolean status, String img, String gender) {
+			int dept, String username, String password, boolean status, String img, String gender, String role) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -83,15 +79,11 @@ public class Employee implements Serializable {
 		this.salary = salary;
 		this.dept = dept;
 		this.username = username;
-		this.passwords = passwords;
+		this.password = password;
 		this.status = status;
 		this.img = img;
 		this.gender = gender;
-	}
-
-	public Employee() {
-		super();
-		// TODO Auto-generated constructor stub
+		this.role = role;
 	}
 
 	public int getId() {
@@ -154,8 +146,7 @@ public class Employee implements Serializable {
 		return dept;
 	}
 
-	public void setDept(int dept
-			) {
+	public void setDept(int dept) {
 		this.dept = dept;
 	}
 
@@ -167,12 +158,12 @@ public class Employee implements Serializable {
 		this.username = username;
 	}
 
-	public String getPasswords() {
-		return passwords;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPasswords(String passwords) {
-		this.passwords = passwords;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public boolean isStatus() {
@@ -182,7 +173,7 @@ public class Employee implements Serializable {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-	
+
 	public String getImg() {
 		return img;
 	}
@@ -190,7 +181,7 @@ public class Employee implements Serializable {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	
+
 	public String getGender() {
 		return gender;
 	}
@@ -198,14 +189,20 @@ public class Employee implements Serializable {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
-    public Set<Role> getRoles() {
-        return roles;
-    }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+    
+ 
     
 
 }

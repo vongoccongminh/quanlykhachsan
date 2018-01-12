@@ -1,6 +1,8 @@
 package com.httt.service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.httt.model.Role;
+
 import com.httt.model.Employee;
 import com.httt.repository.EmployeeRepository;
 
@@ -25,25 +27,26 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        Employee employee = (Employee) employeeRepository.findByNameContaining(name);
+        Employee employee = (Employee) employeeRepository.findByUsername(name);
         System.out.println("1");
         if (employee == null) {
         	System.out.println("2");
             throw new UsernameNotFoundException("Employee not found");
         }
 
-        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        Set<Role> roles = employee.getRoles();
+        String role = employee.getRole();
+  
+        System.out.println("role" + role);
         
-        System.out.println("TEEEEE" + employee.getRoles());
+        System.out.println("pass1" + employee.getUsername());
         
-        for (Role role : roles) {
-        	System.out.println("3");
-            grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
-        }
+        GrantedAuthority authority = new SimpleGrantedAuthority(role);
+		List<GrantedAuthority> grantList= new ArrayList<GrantedAuthority>();
+		grantList.add(authority);
 
+		System.out.println("pass" + employee.getPassword());
         return new org.springframework.security.core.userdetails.User(
-                employee.getUsername(), employee.getPasswords(), grantedAuthorities);
+                employee.getUsername(), employee.getPassword(),true, true, true, true,  grantList);
     }
 
 }
