@@ -26,7 +26,7 @@
 	</th:block>
 	<th:block th:unless="${#lists.isEmpty(thietbis)}">
 		<div class="row">
-		<h2 style = "center;">DANH SÁCH CÁC THIẾT BỊ TORNG HỆ THỐNG</h2>
+		<h2 style = "center;">DANH SÁCH CÁC THIẾT BỊ TRONG HỆ THỐNG</h2>
 		 		<a th:href="@{/thietbi/tao}" class="btn btn-success pull-left">
                 	<span class="glyphicon glyphicon-plus"></span> Thêm thiết bị mới
                	</a>
@@ -34,7 +34,7 @@
 					th:action="@{/thietbi/search}" method="GET">
 					<div class="form-group">
 						<input type="text" class="form-control" name="s"
-							placeholder="Nháº­p sá»‘ Seri" />
+							placeholder="Nhập số Seri" />
 					</div>
 					<button type="submit" class="btn btn-primary">Tìm kiếm</button>
 				</form>
