@@ -1,16 +1,13 @@
 /*
  Navicat Premium Data Transfer
-
  Source Server         : localhost_3306
  Source Server Type    : MySQL
  Source Server Version : 50720
  Source Host           : localhost:3306
  Source Schema         : hotel
-
  Target Server Type    : MySQL
  Target Server Version : 50720
  File Encoding         : 65001
-
  Date: 12/01/2018 14:54:47
 */
 
@@ -502,9 +499,6 @@ CREATE TABLE `thongke`  (
   CONSTRAINT `ThongKe_LoaiTK` FOREIGN KEY (`LoaiTK`) REFERENCES `loaithongke` (`MaLoaiTK`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `ThongKe_MaNV` FOREIGN KEY (`MaNV`) REFERENCES `nhanvien` (`MaNV`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
------------------------
-
 -- ----------------------------
 -- Table structure for thongtindatphong
 -- ----------------------------
