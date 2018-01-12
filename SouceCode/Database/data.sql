@@ -14,6 +14,10 @@
  Date: 12/01/2018 14:54:47
 */
 
+create database hotel;
+
+use hotel;
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -337,10 +341,11 @@ CREATE TABLE `loaithongke`  (
 -- ----------------------------
 -- Records of loaithongke
 -- ----------------------------
-INSERT INTO `loaithongke` VALUES (1, 'Tháng', 'thống kê theo tháng');
-INSERT INTO `loaithongke` VALUES (2, 'Năm', 'thống kê theo năm');
-INSERT INTO `loaithongke` VALUES (3, 'Tuần', 'thống kê theo tuần');
-
+INSERT INTO `loaithongke` VALUES (1, 'Thống kê ngày', 'thống kê theo ngày');
+INSERT INTO `loaithongke` VALUES (2, 'Thống kê tuần', 'thống kê theo tuần');
+INSERT INTO `loaithongke` VALUES (3, 'Thống kê tháng', 'thống kê theo tháng');
+INSERT INTO `loaithongke` VALUES (4, 'Thống kê quý', 'thống kê theo quý');
+INSERT INTO `loaithongke` VALUES (5, 'Thống kê năm', 'thống kê theo năm');
 -- ----------------------------
 -- Table structure for nhanvien
 -- ----------------------------
@@ -470,7 +475,7 @@ INSERT INTO `thietbi` VALUES (4, 'a', '2243', '2018-01-12 00:00:00', '2018-01-31
 -- ----------------------------
 DROP TABLE IF EXISTS `thongke`;
 CREATE TABLE `thongke`  (
-  `MaThongKe` int(11) NOT NULL,
+  `MaThongKe` int(11) NOT NULL AUTO_INCREMENT,
   `NgayThucHienTK` datetime(0) NULL DEFAULT NULL,
   `NoiDungTK` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `NgayBD` datetime(0) NULL DEFAULT NULL,
@@ -489,13 +494,7 @@ CREATE TABLE `thongke`  (
   `SLKhachHang2` int(11) NULL DEFAULT NULL,
   `LoaiTK` int(11) NULL DEFAULT NULL,
   `MaNV` int(11) NULL DEFAULT NULL,
-  `slkhachhang` int(11) NULL DEFAULT NULL,
-  `slkhachhangdp` int(11) NULL DEFAULT NULL,
-  `slphongduocthue` int(11) NULL DEFAULT NULL,
-  `slphongkhongduocthue` int(11) NULL DEFAULT NULL,
-  `slphongtrong` int(11) NULL DEFAULT NULL,
-  `sotienchi` float NULL DEFAULT NULL,
-  `sotienthu` float NULL DEFAULT NULL,
+  
   PRIMARY KEY (`MaThongKe`) USING BTREE,
   INDEX `ThongKe_LoaiTK`(`LoaiTK`) USING BTREE,
   INDEX `ThongKe_MaNV`(`MaNV`) USING BTREE,
@@ -617,4 +616,3 @@ CREATE TABLE `ttdatphong`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
-
