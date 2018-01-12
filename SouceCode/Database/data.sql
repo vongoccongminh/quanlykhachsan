@@ -472,8 +472,7 @@ INSERT INTO `thietbi` VALUES (4, 'a', '2243', '2018-01-12 00:00:00', '2018-01-31
 
 -- ----------------------------
 -- Table structure for thongke
--- ----------------------------
-DROP TABLE IF EXISTS `thongke`;
+-- -----DROP TABLE IF EXISTS `thongke`;
 CREATE TABLE `thongke`  (
   `MaThongKe` int(11) NOT NULL AUTO_INCREMENT,
   `NgayThucHienTK` datetime(0) NULL DEFAULT NULL,
@@ -492,6 +491,8 @@ CREATE TABLE `thongke`  (
   `SLPhongTrong2` int(11) NULL DEFAULT NULL,
   `SLKhachHang1` int(11) NULL DEFAULT NULL,
   `SLKhachHang2` int(11) NULL DEFAULT NULL,
+  `SLPhongDuocDat1` int(11) NULL DEFAULT NULL,
+  `SLPhongDuocDat2` int(11) NULL DEFAULT NULL,
   `LoaiTK` int(11) NULL DEFAULT NULL,
   `MaNV` int(11) NULL DEFAULT NULL,
   
@@ -501,6 +502,8 @@ CREATE TABLE `thongke`  (
   CONSTRAINT `ThongKe_LoaiTK` FOREIGN KEY (`LoaiTK`) REFERENCES `loaithongke` (`MaLoaiTK`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `ThongKe_MaNV` FOREIGN KEY (`MaNV`) REFERENCES `nhanvien` (`MaNV`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-----------------------
 
 -- ----------------------------
 -- Table structure for thongtindatphong
