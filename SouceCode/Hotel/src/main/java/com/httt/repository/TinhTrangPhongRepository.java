@@ -13,5 +13,8 @@ public interface TinhTrangPhongRepository extends CrudRepository<TinhTrangPhong,
 	@Query("SELECT t FROM TinhTrangPhong  t WHERE t.phong =?1 and t.ngay in (select max(ngay) from TinhTrangPhong WHERE phong =?1)")
     public List<TinhTrangPhong> findTinhTrangPhong(int phong);
 	
+	
+	@Query("SELECT t FROM TinhTrangPhong  t WHERE t.phong =?1 ")
+    public List<TinhTrangPhong> findPhong(int phong);
 }
 

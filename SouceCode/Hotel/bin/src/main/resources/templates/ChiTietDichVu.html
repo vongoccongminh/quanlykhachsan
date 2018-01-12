@@ -3,7 +3,7 @@
 <head th:replace="layout :: head"></head>
 <body>
     <nav th:replace="layout :: header"></nav>
-
+	<br/> <br/> <br/> <br/> <br/>
     <div class="container main-content form">
         <div class="row">
           <form action="#" th:action="@{/dichvu/save}" th:object="${Dichvu}"
@@ -15,9 +15,24 @@
 		    </div>
 		    
 		    <div class="form-group">
+				<label>LoaiDV</label>
+				<select th:field="*{loaiDV}">
+                         <option th:each="loaiDV : ${listLDV}"
+                            th:value="${loaiDV.maLDV}"
+                            th:utext="${loaiDV.tenLDV}"/>
+                </select>
+                
+                <a th:href="@{/loaidichvu}" class="btn btn-success pull-center">
+			      Xem chi tiet Loai Dich Vu
+			    </a>
+			</div>
+		    
+		    <!--
+		    <div class="form-group">
 		        <label>LoaiDV</label> 
 		        <input type="text" class="form-control" th:field="*{loaiDV}" />
 		    </div>
+		    -->
 		    <div class="form-group">
 		        <label>MoTa</label> 
 		        <input type="text" class="form-control" th:field="*{moTa}" />

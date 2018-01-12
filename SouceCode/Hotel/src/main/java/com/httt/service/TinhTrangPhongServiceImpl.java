@@ -38,6 +38,10 @@ public class TinhTrangPhongServiceImpl implements TinhTrangPhongService {
     public List<TinhTrangPhong> laytinhtrang(int id) {
         return tinhtrangphongRepository.findTinhTrangPhong(id);
     }
+    
+    public List<TinhTrangPhong> layphong(int id) {
+        return tinhtrangphongRepository.findPhong(id);
+    }
 }
 
 
