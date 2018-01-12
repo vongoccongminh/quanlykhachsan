@@ -1,5 +1,7 @@
 package com.httt.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +16,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.httt.model.Dichvu;
 import com.httt.service.DichvuService;
+import com.httt.model.Loaidichvu;
+import com.httt.service.LoaidichvuService;
 
 @Controller
 public class DichvuController {
 	@Autowired
 	private DichvuService DichvuService;
+	
+	@Autowired
+	private LoaidichvuService LoaidichvuService;
 
 	@GetMapping("/dichvu")
 	public String index(Model model) {
@@ -28,12 +35,18 @@ public class DichvuController {
 
 	@GetMapping("/dichvu/create")
 	public String create(Model model) {
+		List<Loaidichvu> listLDV = (List<Loaidichvu>) this.LoaidichvuService.findAll();
+		model.addAttribute("listLDV", listLDV);
+		
 		model.addAttribute("Dichvu", new Dichvu());
 		return "ChiTietDichVu";
 	}
 
 	@GetMapping("/dichvu/{maDV}/edit")
 	public String edit(@PathVariable int maDV, Model model) {
+		List<Loaidichvu> listLDV = (List<Loaidichvu>) this.LoaidichvuService.findAll();
+		model.addAttribute("listLDV", listLDV);
+		
 		model.addAttribute("Dichvu", DichvuService.findOne(maDV));
 		return "ChiTietDichVu";
 	}

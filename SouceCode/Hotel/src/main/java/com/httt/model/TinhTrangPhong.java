@@ -12,9 +12,10 @@ import javax.persistence.Table;
 public class TinhTrangPhong {
 
 	@Id
+	@Column(name = "id", nullable = false)
+    private int id;
 	@Column(name = "phong", nullable = false)
     private int phong;
-	
 	
     @Column(name = "tinhtrang", nullable = false)
     private String tinhtrang;
@@ -25,6 +26,13 @@ public class TinhTrangPhong {
     @Column(name = "ghichu", nullable = false)
     private String ghichu;
 
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getPhong() {
 		return phong;
 	}
@@ -57,8 +65,9 @@ public class TinhTrangPhong {
 		this.ghichu = ghichu;
 	}
 	
-	public TinhTrangPhong(int Phong, String TinhTrang, Date Ngay, String GhiChu) {
+	public TinhTrangPhong(int id,int Phong, String TinhTrang, Date Ngay, String GhiChu) {
 		super();
+		this.id=id;
 		this.phong = Phong;
 		this.tinhtrang = TinhTrang;
 		this.ngay = Ngay;

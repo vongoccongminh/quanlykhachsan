@@ -20,22 +20,20 @@ CREATE TABLE LOAIBAOCAO
 	PRIMARY KEY(MaLoaiBaoCao)
 );
 
-CREATE TABLE DICHVU
+CREATE TABLE dichvu 
 (
-	MaDV int,
-	TenDV nvarchar(50),
-	MoTa nvarchar(50),
-	DonGia float,
-	LoaiDV int,
-	PRIMARY KEY(MaDV)
+	maDV INT  NOT NULL auto_increment PRIMARY KEY,
+	tenDV nvarchar ( 50 ) NOT NULL,
+	loaiDV INT NOT NULL,
+	moTa nvarchar ( 50 ),
+	donGia INT 
 );
 
-CREATE TABLE LOAIDICHVU
+CREATE TABLE loaidichvu 
 (
-	MaLoaiDV int,
-	TenLoaiDV nvarchar(20),
-	MoTa nvarchar(50),
-	PRIMARY KEY(MaLoaiDV)
+	maLDV INT NOT NULL auto_increment PRIMARY KEY,
+	tenLDV nvarchar(50) NOT NULL,
+	moTa nvarchar (50)
 );
 
 CREATE TABLE CHITIETTHUEDICHVU
@@ -70,7 +68,9 @@ CREATE TABLE CHITIETKYGUIHANHLY
 CREATE TABLE THONGTINTRAPHONG 
 (
 	matp int not null AUTO_INCREMENT,
-	tgtraphong datetime,
+        mathuephong int,
+	makh int,
+	thoigiantraphong datetime,
 	chiphiphatsinh float,
 	mota nvarchar(50),
 	tongien float,
@@ -274,11 +274,11 @@ primary key (MaDP, LoaiPhong)
 
 create table TINHTRANGPHONG
 (
+id int AUTO_INCREMENT PRIMARY KEY,
 Phong int,
 TinhTrang nvarchar(20),
 Ngay date,
-GhiChu nvarchar(50),
-primary key (Phong, Ngay)
+GhiChu nvarchar(50)
 );
 
 -- Tao khoa ngoai
@@ -293,10 +293,10 @@ ADD CONSTRAINT BaoCao_MaNhanVien
 FOREIGN KEY (NguoiLap)
 REFERENCES NhanVien(MaNV);
 
-ALTER TABLE DICHVU
+ALTER TABLE dichvu
 ADD CONSTRAINT DichVu_LoaiDV
-FOREIGN KEY (LoaiDV)
-REFERENCES LoaiDichVu(MaLoaiDV);
+FOREIGN KEY (loaiDV)
+REFERENCES loaidichvu(maLDV);
 
 ALTER TABLE CHITIETTHUEDICHVU
 ADD CONSTRAINT CTThueDV_MaTP

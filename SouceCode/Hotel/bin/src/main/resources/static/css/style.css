@@ -1,27 +1,122 @@
 .main-content 
- min-height: 500px;
- max-width: 700px;
- margin-top: 70px;
+ min-height: 500px ; max-width: 700px ; margin-top: 70px ; .margin {
+	margin-bottom: 45px;
+}
+
+.container-fluid {
+	background: black;
+	margin-top: 80px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.list
+
+
  
  
 
-
-.list 
- max-width: 800px;
+max-width
 
 
-.form 
- max-width: 450px;
+:
+
+ 
+
+800
+px
 
 
-.row 
- margin-top: 30px;
+;
+.form
+
+ 
+ 
+
+max-width
 
 
-.table th, td 
- text-align: center; 
+:
+
+ 
+
+450
+px
 
 
-.field-error 
- border: 1px solid #ff0000;
- margin-bottom: 10px; 
+;
+.row
+
+ 
+ 
+
+margin-top
+
+
+:
+
+ 
+
+30
+px
+
+
+;
+.table
+
+ 
+
+th
+,
+td
+
+ 
+ 
+
+text-align
+
+
+:
+
+ 
+
+center
+
+
+;
+.field-error
+
+ 
+ 
+
+border
+
+
+:
+
+ 
+
+1
+px
+
+ 
+
+solid
+
+ 
+
+#ff0000
+
+
+;
+margin-bottom
+
+
+:
+
+ 
+
+10
+px
+
+
+;

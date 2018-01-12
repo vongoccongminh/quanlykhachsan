@@ -38,7 +38,7 @@ public class PhongController {
 	@GetMapping("/phong/create")
 	public String create(Model model) {
         model.addAttribute("phong", new Phong());
-		model.addAttribute("loaiphongs", loaiphongService.findAll());
+		model.addAttribute("loaiphongs", loaiphongService.findAll() );
 		return "themphong";
 	}
 	
@@ -73,7 +73,7 @@ public class PhongController {
 	}
 	
 	
-	@GetMapping("/phong/edit/{id}")
+	@GetMapping("/phong/editphong/{id}")
 	public String edit(@PathVariable int id, Model model) {
 		Phong xxx = phongService.findOne(id);
 		model.addAttribute("phong", xxx);
@@ -81,14 +81,14 @@ public class PhongController {
 		model.addAttribute("loaiphongs", loaiphongService.layloaiphong(maloai));
 		model.addAttribute("tinhtrangphongs", tinhtrangphongService.laytinhtrang(id));
 		model.addAttribute("loaiphongalls", loaiphongService.findAll());
-		return "edit";
+		return "editphong";
 	}
 	
 	
-	@GetMapping("/phong/lichsu/{id}")
+	
+	@GetMapping("/phong/xemlichsu/{id}")
 	public String xemlichsu(@PathVariable int id, Model model) {
-		model.addAttribute("phong", phongService.findOne(id));
-		model.addAttribute("tinhtrangphongs", tinhtrangphongService.findOne(id));
+		model.addAttribute("tinhtrangphongs", tinhtrangphongService.layphong(id));
 		return "xemlichsu";
 	}
 }
