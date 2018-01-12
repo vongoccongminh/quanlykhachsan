@@ -8,7 +8,7 @@
 
 <div class="container main-content form">
 	<br /> <br /> <br /> <br />
-	<h2>ThÃªm thá»‘ng kÃª má»›i</h2>
+	<h2>Thêm thống kê mới</h2>
 	<br/>
 	
 	
@@ -18,12 +18,12 @@
 			<input type="hidden" th:field="*{mathongke}" />
 			<div class="col-xs-5">
 				<div class="form-group">
-					<label>NgÃ y thá»±c hiá»‡n</label> <input type="date" class="form-control"
-						placeholder="NgÃ y thá»±c hiá»‡n" th:field="*{ngaythuchientk}" />
+					<label>Ngày thực hiện</label> <input type="date" class="form-control"
+						placeholder="Ngày thực hiện" th:field="*{ngaythuchientk}" />
 				</div>
 
 						<div class="form-group">
-					<label>Loáº¡i thá»‘ng kÃª</label>
+					<label>Loại thống kê</label>
 					<select th:field="*{loaitk}">
                          <option th:each="loaithongke : ${listLoaithongke}"
                             th:value="${loaithongke.maloaitk}"
@@ -35,23 +35,23 @@
 				
 				
 				<div class="form-group">
-					<label>Ná»™i dung</label> <input type="text" class="form-control"
-						placeholder="Ná»™i dung" th:field="*{noidungtk}" id="nd"/>
+					<label>Nội dung</label> <input type="text" class="form-control"
+						placeholder="Nội dung" th:field="*{noidungtk}" id="nd"/>
 				</div>
 	
 				<div class="form-group">
-					<label>Má»‘c thá»�i gian A</label> <input type="date" class="form-control"
-						placeholder="NgÃ y báº¯t Ä‘áº§u" th:field="*{ngaybd}" />
+					<label>Mốc thời gian A</label> <input type="date" class="form-control"
+						placeholder="Mốc thời gian A" th:field="*{ngaybd}" />
 				</div>
 				
 				  <div class="form-group">
-         			 <label>Má»‘c thá»�i gian B</label> <input type="date" class="form-control"
-           				 placeholder="NgÃ y káº¿t thÃºc" th:field="*{ngaykt}" />
+         			 <label>Mốc thời gian B</label> <input type="date" class="form-control"
+           				 placeholder="Mốc thời gian B" th:field="*{ngaykt}" />
        				 </div>
 
       	
         <div class="form-group">
-          <label>NhÃ¢n viÃªn thá»±c hiá»‡n</label> 
+          <label>Nhân viên thực hiện</label> 
           <select th:field="*{manv}">
                          <option th:each="nhanvien : ${listEmployee}"
                             th:value="${nhanvien.id}"
