@@ -18,58 +18,49 @@
 			<span th:text="${success}"></span>
 		</div>
 		<div class="row">
-			<a th:href="@{/thongke/create}" class="btn btn-success pull-left">
-				<span class="glyphicon glyphicon-plus"></span> Thêm thống kê
+			<a th:href="@{/loaithongke/create}" class="btn btn-success pull-left">
+				<span class="glyphicon glyphicon-plus"></span> Thêm loại thống kê mới
 			</a>
 			
 			<form class="form-inline pull-right" action="#"
-				th:action="@{/thongke/search}" method="GET">
+				th:action="@{/loaithongke/search}" method="GET">
 				<div class="form-group">
 					<input type="text" class="form-control" name="s"
-						placeholder="Nhập mã thống kê cần tìm ..." />
+						placeholder="Nhập mã loại thống kê cần tìm ..." />
 				</div>
 				<button type="submit" class="btn btn-primary">Search</button>
 			</form>
 		</div>
 		<br/>
-		<th:block th:if="${#lists.isEmpty(thongke)}">
-			<h3>Không có thống kê nào</h3>
+		<th:block th:if="${#lists.isEmpty(loaithongke)}">
+			<h3>Không có loại thống kê nào</h3>
 		</th:block>
 
-		<th:block th:unless="${#lists.isEmpty(thongke)}">
+		<th:block th:unless="${#lists.isEmpty(loaithongke)}">
 			<div class="row">
 				<table class="table table-bordered table-hover">
 					<thead>
 						<tr>
 							<th>No</th>
-							<th>Mã thống kê</th>
-							<th>Ngày thực hiện</th>
-							<th>Loại thống kê</th>
-							<th>Nội dung</th>
-							<th>Mốc thời gian A</th>
-							<th>Mốc thời gian B</th>
-							<th>Mã nhân viên</th>
-							
+							<th>Mã loại thống kê</th>
+							<th>Tên loại thống kê</th>
+							<th>Ghi chú</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="thongke,iterStat : ${thongke}">
+						<tr th:each="loaithongke,iterStat : ${loaithongke}">
 							<td th:text="${iterStat.count}"></td>
-							<td th:text="${thongke.mathongke}"></td>
-							<td th:text="${thongke.ngaythuchientk}"></td>
-							<td th:text="${thongke.loaitk}"></td>
-							<td th:text="${thongke.noidungtk}"></td>
-							<td th:text="${thongke.ngaybd}"></td>
-							<td th:text="${thongke.ngaykt}"></td>
-							<td th:text="${thongke.manv}"></td>
+							<td th:text="${loaithongke.maloaitk}"></td>
+							<td th:text="${loaithongke.tenloaitk}"></td>
+							<td th:text="${loaithongke.ghichu}"></td>
 							
-							<td><a th:href="@{/thongke/{id}/detail(id=${thongke.mathongke})}"><span
+							<td><a th:href="@{/loaithongke/{id}/detail(id=${loaithongke.maloaitk})}"><span
 								>Xem chi tiết</span></a></td>
 								
-							<td><a th:href="@{/thongke/{id}/edit(id=${thongke.mathongke})}"><span
+							<td><a th:href="@{/loaithongke/{id}/edit(id=${loaithongke.maloaitk})}"><span
 									class="glyphicon glyphicon-pencil"></span></a></td>
 									
-							<td><a th:href="@{/thongke/{id}/delete(id=${thongke.mathongke})}"><span
+							<td><a th:href="@{/loaithongke/{id}/delete(id=${loaithongke.maloaitk})}"><span
 									class="glyphicon glyphicon-trash"></span></a></td>
 						</tr>
 					</tbody>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<head th:replace="layout :: head"></head>
+<nav th:replace="layout :: header"></nav>
+
+<div class="container main-content form">
+	<br /> <br /> <br /> <br />
+	<h2>Thêm loại thống kê mới</h2>
+	<br/>
+	<div class="form-group row">
+		<form class="form-horizontal" action="#" th:action="@{/loaithongke/save}"
+			th:object="${loaithongke}" method="POST" novalidate="novalidate">
+			<input type="hidden" th:field="*{maloaitk}" />
+			<div class="col-xs-5">
+				<div class="form-group">
+					<label>Tên loại thống kê</label> <input type="text" class="form-control"
+						placeholder="Tên loại thống kê" th:field="*{tenloaitk}" />
+				</div>
+
+				<div class="form-group">
+					<label>Ghi chú</label> <input type="text" class="form-control"
+						placeholder="Ghi chú" th:field="*{ghichu}" />
+				</div>
+	
+				
+			<button type="submit" class="btn btn-primary btn-md">Add</button>
+			</div>
+		
+		</form>
+	</div>
+</div>
+<br />
+<br />
+<br />
+
+<!-- /.container -->
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>
