@@ -274,11 +274,11 @@ primary key (MaDP, LoaiPhong)
 
 create table TINHTRANGPHONG
 (
+id int AUTO_INCREMENT PRIMARY KEY,
 Phong int,
 TinhTrang nvarchar(20),
 Ngay date,
-GhiChu nvarchar(50),
-primary key (Phong, Ngay)
+GhiChu nvarchar(50)
 );
 
 -- Tao khoa ngoai
