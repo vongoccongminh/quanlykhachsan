@@ -20,18 +20,20 @@ CREATE TABLE LOAIBAOCAO
 	PRIMARY KEY(MaLoaiBaoCao)
 );
 
-CREATE TABLE dichvu (
-maDV INT  NOT NULL auto_increment PRIMARY KEY,
-tenDV nvarchar ( 50 ) NOT NULL,
-loaiDV INT NOT NULL,
-moTa nvarchar ( 50 ),
-donGia INT 
+CREATE TABLE dichvu 
+(
+	maDV INT  NOT NULL auto_increment PRIMARY KEY,
+	tenDV nvarchar ( 50 ) NOT NULL,
+	loaiDV INT NOT NULL,
+	moTa nvarchar ( 50 ),
+	donGia INT 
 );
 
-CREATE TABLE loaidichvu (
-maLDV INT NOT NULL auto_increment PRIMARY KEY,
-tenLDV nvarchar(50) NOT NULL,
-moTa nvarchar (50)
+CREATE TABLE loaidichvu 
+(
+	maLDV INT NOT NULL auto_increment PRIMARY KEY,
+	tenLDV nvarchar(50) NOT NULL,
+	moTa nvarchar (50)
 );
 
 CREATE TABLE CHITIETTHUEDICHVU
