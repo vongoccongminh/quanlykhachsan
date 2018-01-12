@@ -300,8 +300,9 @@ CREATE TABLE `loaiphong`  (
 -- ----------------------------
 -- Records of loaiphong
 -- ----------------------------
-INSERT INTO `loaiphong` VALUES (1, 'Phòng đơn', 'phòng đơn ', 200000);
-INSERT INTO `loaiphong` VALUES (2, 'Phòng đôi', 'phòng đôi', 350000);
+INSERT INTO `loaiphong` VALUES (1,'Thuong', 'cccccccc', 300000 );
+INSERT INTO `loaiphong` VALUES (2, 'Vip', 'cccccccc', 500000 );
+INSERT INTO `loaiphong` VALUES (3, 'Dac biet', 'cccccccc', 800000);
 
 -- ----------------------------
 -- Table structure for loaithietbi
@@ -409,8 +410,13 @@ CREATE TABLE `phong`  (
 -- ----------------------------
 -- Records of phong
 -- ----------------------------
-INSERT INTO `phong` VALUES (1, 'A1234', 150000, NULL, 1);
-INSERT INTO `phong` VALUES (2, 'A001', 1222000, NULL, 2);
+INSERT INTO `phong` VALUES (1, 'B101', 500000, 'co tu lanh, co may nuoc nong', 2);
+INSERT INTO `phong` VALUES (2, 'C201', 750000, 'co tu lanh, co may nuoc nong, co tivi, co may lanh', 3);
+INSERT INTO `phong` VALUES (3, 'A301', 280000, 'co tu lanh, co tivi', 1);
+INSERT INTO `phong` VALUES (4, 'A102', 310000, 'co tu lanh, co tivi', 1);
+INSERT INTO `phong` VALUES (5, 'B105', 550000, 'co tu lanh, co may nuoc nong, co tivi', 2);
+INSERT INTO `phong` VALUES (6, 'B303', 490000, 'co tu lanh, co may nuoc nong', 2);
+
 
 -- ----------------------------
 -- Table structure for report
@@ -596,6 +602,28 @@ CREATE TABLE `tinhtrangphong`  (
   INDEX `FK_CHITIETDP_PHONG`(`Phong`) USING BTREE,
   CONSTRAINT `FK_CHITIETDP_PHONG` FOREIGN KEY (`Phong`) REFERENCES `phong` (`MaPhong`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tinhtrangphong
+-- ----------------------------
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'con trong', '2018-01-01', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'con trong', '2018-01-02', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'dang sua chua', '2018-01-03', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'dang sua chua', '2018-01-04', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'dang thue', '2018-01-05', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'con trong', '2018-01-06', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'dang thue', '2018-01-07', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'dang thue', '2018-01-08', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'dang thue', '2018-01-09', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'con trong', '2018-01-10', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'con trong', '2018-01-11', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'dang thue', '2018-01-12', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'con trong', '2018-01-13', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'dang thue', '2018-01-14', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 1, 'dang thue', '2018-01-15', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 2, 'dang thue', '2018-01-14', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 2, 'dang thue', '2018-01-15', '.......');
+INSERT INTO `tinhtrangphong` VALUES (NULL, 2, 'con trong', '2018-01-16', '.......');
 
 -- ----------------------------
 -- Table structure for ttdatphong
