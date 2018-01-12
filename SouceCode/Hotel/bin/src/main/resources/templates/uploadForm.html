@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<head th:replace="layout :: head"></head>
+<nav th:replace="layout :: header"></nav>
+
+<div class="container main-content form">
+
+	<br /> <br /> <br /> <br /> <br /> <br />
+	<h1>Upload report here!</h1>
+
+	<div th:if="${message}">
+		<h2 th:text="${message}" />
+	</div>
+
+	<div>
+		<form method="POST" enctype="multipart/form-data" action="/upload">
+			<table>
+				<tr>
+					<td>File to upload:</td>
+					<td><input type="file" name="file" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Upload" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	
+	
+	<a href="/gellallfiles">Get List Files</a>
+
+</div>
+
+
+<br />
+<br />
+<br />
+
+<!-- /.container -->
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

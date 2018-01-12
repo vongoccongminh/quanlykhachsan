@@ -15,4 +15,5 @@ public interface TinhTrangPhongService {
    
     List<TinhTrangPhong> laytinhtrang(int maphong);
     
+    List<TinhTrangPhong> layphong(int maphong);
    }

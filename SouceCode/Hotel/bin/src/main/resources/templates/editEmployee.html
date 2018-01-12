@@ -8,7 +8,7 @@
 <div class="container main-content form">
 	<br /> <br /> <br /> <br />
 	<h2>Sửa thông tin nhân viên!</h2>
-	<br/>
+	<br />
 	<div class="form-group row">
 		<form class="form-horizontal" action="#" th:action="@{/employee/save}"
 			th:object="${employee}" method="POST" novalidate="novalidate">
@@ -64,11 +64,19 @@
 						placeholder="Lương" th:field="*{salary}" />
 				</div>
 
+				<div class="form-group">
+					<label>Bộ phận</label> <select th:field="*{dept}">
+						<option th:each="dept : ${listDepartment}" th:value="${dept.id}"
+							th:utext="${dept.name}" />
+					</select>
+				</div>
 
+				<!-- 
 				<div class="form-group">
 					<label>Phòng</label> <input type="text" class="form-control"
 						placeholder="Phòng ban" th:field="*{dept}" />
 				</div>
+				 -->
 
 				<div class="form-group">
 					<label>Tài khoản</label> <input type="text" class="form-control"
@@ -76,8 +84,8 @@
 				</div>
 
 				<div class="form-group">
-					<label>Mật khẩu</label> <input type="password" class="form-control" readonly="readonly"
-						placeholder="***" th:field="*{passwords}" />
+					<label>Mật khẩu</label> <input type="password" class="form-control"
+						readonly="readonly" placeholder="***" th:field="*{passwords}" />
 				</div>
 
 
@@ -88,8 +96,8 @@
 					</select>
 
 				</div>
-				
-				
+
+
 				<div class="form-group">
 					<label>Ảnh đại diện</label> <input type="file"
 						class="form-control-file" path="img" th:field="*{img}" />

@@ -44,12 +44,16 @@
 				</div>
 				
 				<div class="form-group">
-				<label>Loại khách hàng</label>
-				<select th:field="*{maloaikh}">
-                         <option th:each="maloaikh : ${listLKH}"
-                            th:value="${maloaikh.maloaikh}"
-                            th:utext="${maloaikh.tenloaikh}"/>
-                  </select>
+					<label>Loại khách hàng</label>
+						<select th:field="*{maloaikh}">
+		                         <option th:each="maloaikh : ${listLKH}"
+		                            th:value="${maloaikh.maloaikh}"
+		                            th:utext="${maloaikh.tenloaikh}"/>
+		                </select>
+				
+						<a th:href="@{/loaikhachhang}" class="btn btn-success pull-center">
+			                	Xem chi tiết loại khách hàng
+			            </a>
 				</div>
 				
 				<br />
