@@ -35,7 +35,7 @@ public class ThietBiController {
 	private PhongService phongService;
 	
 
-	@GetMapping({"/thietbi","/"})
+	@GetMapping({"/thietbi"})
 	public String index(Model model) 
 	{
 		model.addAttribute("thietbis", thietBiService.findAll());

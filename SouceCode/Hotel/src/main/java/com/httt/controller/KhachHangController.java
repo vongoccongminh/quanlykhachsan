@@ -32,7 +32,7 @@ public class KhachHangController {
 	private LoaiKhachHangService loaikhachhangService;
 	
 
-	@GetMapping({"/khachhang","/"})
+	@GetMapping({"/khachhang"})
 	public String index(Model model) 
 	{
 		model.addAttribute("khachhangs", khachhangService.findAll());

@@ -21,7 +21,7 @@ public class ThongTinThuePhongController {
 	@Autowired
 	private ThongTinThuePhongService ThongTinThuePhongService;
 
-	@GetMapping({"/ThongTinThuePhong","/"})
+	@GetMapping({"/ThongTinThuePhong"})
 	public String index(Model model) 
 	{
 		model.addAttribute("ThongTinThuePhongs", ThongTinThuePhongService.findAll());

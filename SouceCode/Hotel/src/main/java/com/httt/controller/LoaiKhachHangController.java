@@ -22,7 +22,7 @@ public class LoaiKhachHangController {
 	@Autowired
 	private LoaiKhachHangService loaikhachhangService;
 	
-	@GetMapping({"/loaikhachhang","/"})
+	@GetMapping({"/loaikhachhang"})
 	public String index(Model model) 
 	{
 		model.addAttribute("loaikhachhangs", loaikhachhangService.findAll());

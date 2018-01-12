@@ -2,6 +2,8 @@ package com.httt.controller;
 
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,9 @@ public class IndexController {
 
 	@GetMapping({ "/", "/home", "/index" } )
 	public String index(Model model) {
+		
+
+	    
 		return "index";
 	}
 
