@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.httt.model.DatPhong;
+import com.httt.model.Employee;
 import com.httt.model.Loaithongke;
 import com.httt.model.Thongke;
 import com.httt.model.TinhTrangPhong;
 import com.httt.service.DatPhongService;
+import com.httt.service.EmployeeService;
 import com.httt.service.LoaithongkeService;
 import com.httt.service.ThongkeService;
 import com.httt.service.TinhTrangPhongService;
@@ -38,6 +40,9 @@ public class ThongkeController {
 	private TinhTrangPhongService tinhtrangphongService;
 	
 	@Autowired
+	private EmployeeService employeeService;
+	
+	@Autowired
 	private DatPhongService datphongService;
 	
 	
@@ -45,6 +50,9 @@ public class ThongkeController {
 	public String index(Model model) {
 		List<Loaithongke> listLoaithongke = (List<Loaithongke>) this.loaithongkeService.findAll();
 		model.addAttribute("listLoaithongke", listLoaithongke);
+		
+		List<Employee> listEmployee = (List<Employee>) this.employeeService.findAll();
+		model.addAttribute("listEmployee", listEmployee);
 		model.addAttribute("thongke", thongkeService.findAll());
 		return "thongke";
 	}
@@ -55,6 +63,8 @@ public class ThongkeController {
 		List<Loaithongke> listLoaithongke = (List<Loaithongke>) this.loaithongkeService.findAll();
 		model.addAttribute("listLoaithongke", listLoaithongke);
 		
+		List<Employee> listEmployee = (List<Employee>) this.employeeService.findAll();
+		model.addAttribute("listEmployee", listEmployee);
 		
 		model.addAttribute("thongke", new Thongke());
 		return "addThongke";
