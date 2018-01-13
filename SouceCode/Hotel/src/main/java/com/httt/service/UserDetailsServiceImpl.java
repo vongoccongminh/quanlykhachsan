@@ -14,17 +14,16 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import com.httt.model.Employee;
 import com.httt.repository.EmployeeRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired
-    private EmployeeRepository employeeRepository;
+	@Autowired
+	private EmployeeRepository employeeRepository;
 
-    @Override
+	@Override
     @Transactional
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
         Employee employee = (Employee) employeeRepository.findByUsername(name);
@@ -36,17 +35,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         String role = employee.getRole();
   
-        System.out.println("role" + role);
-        
-        System.out.println("pass1" + employee.getUsername());
-        
-        GrantedAuthority authority = new SimpleGrantedAuthority(role);
-		List<GrantedAuthority> grantList= new ArrayList<GrantedAuthority>();
+      System.out.println("role" + role);
+              System.out.println("pass1" + employee.getUsername());       
+      GrantedAuthority authority = new SimpleGrantedAuthority(role);	
+      List<GrantedAuthority> grantList= new ArrayList<GrantedAuthority>();
 		grantList.add(authority);
 
 		System.out.println("pass" + employee.getPassword());
-        return new org.springframework.security.core.userdetails.User(
-                employee.getUsername(), employee.getPassword(),true, true, true, true,  grantList);
+       return new org.springframework.security.core.userdetails.User(employee.getUsername(), employee.getPassword(),true, true, true, true,  grantList);
     }
 
 }

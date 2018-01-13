@@ -14,7 +14,7 @@
 	<br /> <br /> <br />
 	<div class="col-sm-5">
 		<div class="w3-card-4" style="width: 70%">
-			<img th:src="@{'/imgs/' + ${employee.img} }" th:class="img-thumbnail"
+			<img th:src="@{'static/imgs/' + ${employee.img} }" th:class="img-thumbnail"
 				style="width: 100%" />
 		</div>
 	</div>
@@ -25,64 +25,64 @@
 			<input type="hidden" th:field="*{id}" />
 
 			<div class="form-group">
-				<label>Họ và tên</label> <input type="text" class="form-control"
+				<label>Há»� vÃ  tÃªn</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{name}" />
 			</div>
 
 
 
 			<div class="form-group">
-				<label>Ngày sinh</label> <input id="date" type="date"
+				<label>NgÃ y sinh</label> <input id="date" type="date"
 					class="form-control" readonly="readonly" th:field="*{birth_day}" />
 			</div>
 
 			<div class="form-group">
-				<label>Giới tính</label> <input type="text" class="form-control"
+				<label>Giá»›i tÃ­nh</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{gender}" />
 			</div>
 
 			<div class="form-group">
-				<label>Địa chỉ</label> <input type="text" class="form-control"
+				<label>Ä�á»‹a chá»‰</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{address}" />
 			</div>
 
 			<div class="form-group">
-				<label>Số điện thoại</label> <input type="text" class="form-control"
+				<label>Sá»‘ Ä‘iá»‡n thoáº¡i</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{phone}" />
 			</div>
 
 			<div class="form-group">
-				<label>Số CMND</label> <input type="text" class="form-control"
+				<label>Sá»‘ CMND</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{passport}" />
 			</div>
 
 			<div class="form-group">
-				<label>Lương</label> <input type="text" class="form-control"
+				<label>LÆ°Æ¡ng</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{salary}" />
 			</div>
 
 			<div class="form-group">
-				<label>Bộ phận</label> <input type="text" class="form-control"
+				<label>Bá»™ pháº­n</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{dept}" />
 			</div>
 
 			<div class="form-group">
-				<label>Tài khoản</label> <input type="text" class="form-control"
+				<label>TÃ i khoáº£n</label> <input type="text" class="form-control"
 					readonly="readonly" th:field="*{username}" />
 			</div>
 
 			<div class="form-group">
-				<label>Mật khẩu</label> <input type="password" class="form-control"
+				<label>Máº­t kháº©u</label> <input type="password" class="form-control"
 					placeholder="***" readonly="readonly" th:field="*{password}" />
 			</div>
 
 			<div class="form-group">
-				<label>Tình trạng tài khoản</label> <input type="text"
+				<label>TÃ¬nh tráº¡ng tÃ i khoáº£n</label> <input type="text"
 					class="form-control" readonly="readonly" th:field="*{status}" />
 			</div>
 		</form>
 		<br/>
-		<a th:href="@{/employee/{id}/edit(id=${employee.id})}" class="button"> Sửa thông tin</a>
+		<a th:href="@{/employee/{id}/edit(id=${employee.id})}" class="button"> Sá»­a thÃ´ng tin</a>
 
 	</div>
 </div>

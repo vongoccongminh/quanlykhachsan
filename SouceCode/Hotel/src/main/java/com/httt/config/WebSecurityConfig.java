@@ -30,7 +30,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		httpSecurity.authorizeRequests().antMatchers("/login").permitAll();
 		
-		httpSecurity.authorizeRequests().antMatchers("/employee/**").access("hasAnyRole('ROLE_ADMIN')");
+		//httpSecurity.authorizeRequests().antMatchers("/employee/**").access("hasAnyRole('ROLE_ADMIN')");
+		httpSecurity.authorizeRequests().antMatchers("/employee/**").permitAll();
 		httpSecurity.authorizeRequests().antMatchers("/department/**").access("hasAnyRole('ROLE_ADMIN')");
 		httpSecurity.authorizeRequests().antMatchers("/","/index", "/home","/report").access("hasAnyRole('ROLE_EMPLOYEE', 'ROLE_ADMIN' )");
 		// Cấu hình cho Login Form.
